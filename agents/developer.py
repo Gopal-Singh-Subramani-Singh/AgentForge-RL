@@ -1,6 +1,3 @@
-from llm.model import LocalLLM
-
-
 class DeveloperAgent:
 
     SYSTEM_PROMPT = """
@@ -11,22 +8,6 @@ When writing code:
 - Return ONLY Python source code.
 - Do not use markdown fences.
 - Do not include explanations.
-"""
-
-    DEBUG_PROMPT = """
-You are an expert Python debugger.
-
-Your job is NOT to write code.
-
-Analyze the implementation and pytest failures carefully.
-Trace the algorithm using the failed examples.
-
-Explain:
-1. What is wrong.
-2. Why the observed values differ from the expected values.
-3. The exact logical change required.
-
-Be concise and specific.
 """
 
     def __init__(self, llm):
@@ -45,34 +26,6 @@ Return only the complete Python source file.
             max_new_tokens=1024,
         )
 
-    def analyze_failure(
-        self,
-        task,
-        current_code,
-        test_output,
-    ):
-        return self.llm.generate(
-            system_prompt=self.DEBUG_PROMPT,
-            user_prompt=f"""
-ORIGINAL REQUIREMENTS:
-
-{task}
-
-CURRENT IMPLEMENTATION:
-
-{current_code}
-
-PYTEST RESULTS:
-
-{test_output}
-
-Diagnose the logical error.
-Do NOT provide replacement source code.
-""",
-            max_new_tokens=512,
-            do_sample=False,
-        )
-
     def fix(
         self,
         task,
@@ -80,10 +33,8 @@ Do NOT provide replacement source code.
         test_output,
         diagnosis,
     ):
-        return self.llm.generate(
-            system_prompt=self.SYSTEM_PROMPT,
-            user_prompt=f"""
-The current implementation failed its tests.
+        prompt = f"""
+You are repairing a Python implementation.
 
 ORIGINAL REQUIREMENTS:
 
@@ -93,23 +44,38 @@ CURRENT IMPLEMENTATION:
 
 {current_code}
 
-PYTEST RESULTS:
+PYTEST FAILURE:
 
 {test_output}
 
-DEBUGGER DIAGNOSIS:
+TESTER DIAGNOSIS:
 
-{diagnosis}
+Problem:
+{diagnosis["problem"]}
 
-Use the diagnosis to correct the implementation.
+Location:
+{diagnosis["location"]}
 
-Important:
-- The previous implementation is known to be incorrect.
-- Do not simply reproduce it.
-- Check the failed examples manually before answering.
-- Return ONLY the complete corrected Python source code.
-""",
+Cause:
+{diagnosis["cause"]}
+
+REQUIRED CHANGE:
+{diagnosis["required_change"]}
+
+Modify the implementation according to the Tester's required change.
+
+IMPORTANT:
+
+- The current implementation is known to be incorrect.
+- You MUST make the requested change.
+- Do not return the unchanged implementation.
+- Preserve behavior that is already correct.
+- Return ONLY the complete corrected Python source file.
+"""
+
+        return self.llm.generate(
+            system_prompt=self.SYSTEM_PROMPT,
+            user_prompt=prompt,
             max_new_tokens=1024,
-            do_sample=True,
-            temperature=0.4,
+            do_sample=False,
         )

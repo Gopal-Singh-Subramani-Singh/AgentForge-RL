@@ -1,0 +1,38 @@
+Implement a Python BankAccount class in solution.py.
+
+Requirements:
+
+1. Constructor:
+   BankAccount(owner, initial_balance=0)
+
+2. Properties:
+   - owner
+   - balance
+   - transaction_history
+
+3. deposit(amount):
+   - Adds amount to balance.
+   - Amount must be greater than 0.
+   - Otherwise raise ValueError.
+   - Record the transaction.
+
+4. withdraw(amount):
+   - Subtracts amount from balance.
+   - Amount must be greater than 0.
+   - Cannot withdraw more than the available balance.
+   - Invalid amounts raise ValueError.
+   - Insufficient funds raise ValueError.
+   - Record successful transactions.
+
+5. transfer(other_account, amount):
+   - Transfers money to another BankAccount.
+   - Amount must be greater than 0.
+   - Cannot transfer more than the available balance.
+   - Update both accounts.
+   - Record transactions for both accounts.
+
+6. transaction_history:
+   - Must be a list.
+   - Successful deposits, withdrawals, incoming transfers,
+     and outgoing transfers must be recorded.
+   - Failed operations must not be recorded.

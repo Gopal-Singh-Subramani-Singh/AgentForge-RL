@@ -74,16 +74,14 @@ Do NOT provide replacement source code.
         )
 
     def fix(
-        self,
-        task,
-        current_code,
-        test_output,
-        diagnosis,
-    ):
-        return self.llm.generate(
-            system_prompt=self.SYSTEM_PROMPT,
-            user_prompt=f"""
-The current implementation failed its tests.
+    self,
+    task,
+    current_code,
+    test_output,
+    diagnosis,
+):
+    prompt = f"""
+You are repairing a Python implementation.
 
 ORIGINAL REQUIREMENTS:
 
@@ -93,23 +91,38 @@ CURRENT IMPLEMENTATION:
 
 {current_code}
 
-PYTEST RESULTS:
+PYTEST FAILURE:
 
 {test_output}
 
-DEBUGGER DIAGNOSIS:
+TESTER DIAGNOSIS:
 
-{diagnosis}
+Problem:
+{diagnosis["problem"]}
 
-Use the diagnosis to correct the implementation.
+Location:
+{diagnosis["location"]}
 
-Important:
-- The previous implementation is known to be incorrect.
-- Do not simply reproduce it.
-- Check the failed examples manually before answering.
-- Return ONLY the complete corrected Python source code.
-""",
-            max_new_tokens=1024,
-            do_sample=True,
-            temperature=0.4,
-        )
+Cause:
+{diagnosis["cause"]}
+
+REQUIRED CHANGE:
+{diagnosis["required_change"]}
+
+Modify the implementation according to the Tester's required change.
+
+IMPORTANT:
+
+- The current implementation is known to be incorrect.
+- You MUST make the requested change.
+- Do not return the unchanged implementation.
+- Preserve behavior that is already correct.
+- Return ONLY the complete corrected Python source file.
+"""
+
+    return self.llm.generate(
+        system_prompt=self.SYSTEM_PROMPT,
+        user_prompt=prompt,
+        max_new_tokens=1024,
+        do_sample=False,
+    )
