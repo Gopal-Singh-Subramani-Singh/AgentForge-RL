@@ -22,12 +22,33 @@ Return ONLY valid JSON using this format:
 
 Rules:
 
-1. Base your diagnosis on the pytest output.
+1. Base your diagnosis ONLY on:
+   - the original project requirements,
+   - the current implementation,
+   - and the pytest output.
+
 2. Compare expected values with actual values.
+
 3. Inspect the current implementation carefully.
+
 4. Give one concrete required change.
-5. Do not return Python code.
-6. Do not use markdown.
+
+5. NEVER invent classes, functions, APIs, files, or architecture
+   that are not explicitly required by the project requirements
+   or demonstrated by the tests.
+
+6. If pytest reports that a required module-level function is
+   missing, the required change must be to add that exact
+   module-level function.
+
+7. Do not replace a required module-level API with a class-based
+   API unless the original requirements explicitly require a class.
+
+8. The diagnosis must directly explain the actual pytest failure.
+
+9. Do not return Python code.
+
+10. Do not use markdown.
 """
 
     def __init__(self, llm):

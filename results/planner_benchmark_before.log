@@ -1,0 +1,937 @@
+Loading 7B planner model...
+Loading Qwen/Qwen2.5-Coder-7B-Instruct in 4-bit on cuda:0
+Model loaded successfully.
+Allocated: 5.18 GB
+Reserved: 5.33 GB
+Free: 4.04 GB
+Total: 9.50 GB
+
+
+########################################################################
+PLANNING level1_bank
+########################################################################
+
+========================================================================
+level1_bank
+========================================================================
+task_count              : 8
+roles                   : {'developer': 5, 'tester': 1, 'documentation': 1, 'reviewer': 1}
+duplicate_ids           : False
+invalid_roles           : 0
+invalid_dependencies    : 0
+ordering_errors         : 0
+root_tasks              : 1
+review_tasks            : 1
+final_reviews           : 0
+max_depth               : 8
+
+Generated plan:
+{
+  "project": "Python Bank Account Module",
+  "tasks": [
+    {
+      "id": "T1",
+      "role": "developer",
+      "description": "Design the BankAccount class with owner and balance attributes.",
+      "depends_on": []
+    },
+    {
+      "id": "T2",
+      "role": "developer",
+      "description": "Implement deposit method for the BankAccount class.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T3",
+      "role": "developer",
+      "description": "Implement withdraw method for the BankAccount class.",
+      "depends_on": [
+        "T1",
+        "T2"
+      ]
+    },
+    {
+      "id": "T4",
+      "role": "developer",
+      "description": "Add logic to prevent overdrafts in the withdraw method.",
+      "depends_on": [
+        "T3"
+      ]
+    },
+    {
+      "id": "T5",
+      "role": "developer",
+      "description": "Reject invalid amounts in both deposit and withdraw methods.",
+      "depends_on": [
+        "T2",
+        "T3",
+        "T4"
+      ]
+    },
+    {
+      "id": "T6",
+      "role": "tester",
+      "description": "Write automated tests for the BankAccount class.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5"
+      ]
+    },
+    {
+      "id": "T7",
+      "role": "documentation",
+      "description": "Document the BankAccount class and its methods.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6"
+      ]
+    },
+    {
+      "id": "T8",
+      "role": "reviewer",
+      "description": "Review the implementation, tests, and documentation of the BankAccount module.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7"
+      ]
+    }
+  ]
+}
+
+
+########################################################################
+PLANNING level2_todo
+########################################################################
+
+========================================================================
+level2_todo
+========================================================================
+task_count              : 27
+roles                   : {'developer': 7, 'tester': 6, 'documentation': 6, 'reviewer': 8}
+duplicate_ids           : False
+invalid_roles           : 0
+invalid_dependencies    : 0
+ordering_errors         : 0
+root_tasks              : 1
+review_tasks            : 8
+final_reviews           : 1
+max_depth               : 7
+
+Generated plan:
+{
+  "project": "Python Todo Management Module",
+  "tasks": [
+    {
+      "id": "T1",
+      "role": "developer",
+      "description": "Design the data model for storing todos.",
+      "depends_on": []
+    },
+    {
+      "id": "T2",
+      "role": "developer",
+      "description": "Implement creating todos with unique IDs.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T3",
+      "role": "developer",
+      "description": "Implement retrieving todos by ID.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T4",
+      "role": "developer",
+      "description": "Implement listing all todos.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T5",
+      "role": "developer",
+      "description": "Implement marking todos as complete.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T6",
+      "role": "developer",
+      "description": "Implement deleting todos.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T7",
+      "role": "developer",
+      "description": "Handle missing IDs gracefully.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6"
+      ]
+    },
+    {
+      "id": "T8",
+      "role": "tester",
+      "description": "Write automated tests for creating todos.",
+      "depends_on": [
+        "T2"
+      ]
+    },
+    {
+      "id": "T9",
+      "role": "tester",
+      "description": "Write automated tests for retrieving todos.",
+      "depends_on": [
+        "T3"
+      ]
+    },
+    {
+      "id": "T10",
+      "role": "tester",
+      "description": "Write automated tests for listing todos.",
+      "depends_on": [
+        "T4"
+      ]
+    },
+    {
+      "id": "T11",
+      "role": "tester",
+      "description": "Write automated tests for marking todos complete.",
+      "depends_on": [
+        "T5"
+      ]
+    },
+    {
+      "id": "T12",
+      "role": "tester",
+      "description": "Write automated tests for deleting todos.",
+      "depends_on": [
+        "T6"
+      ]
+    },
+    {
+      "id": "T13",
+      "role": "tester",
+      "description": "Write automated tests for handling missing IDs.",
+      "depends_on": [
+        "T7"
+      ]
+    },
+    {
+      "id": "T14",
+      "role": "documentation",
+      "description": "Document the API for creating todos.",
+      "depends_on": [
+        "T2",
+        "T8"
+      ]
+    },
+    {
+      "id": "T15",
+      "role": "documentation",
+      "description": "Document the API for retrieving todos.",
+      "depends_on": [
+        "T3",
+        "T9"
+      ]
+    },
+    {
+      "id": "T16",
+      "role": "documentation",
+      "description": "Document the API for listing todos.",
+      "depends_on": [
+        "T4",
+        "T10"
+      ]
+    },
+    {
+      "id": "T17",
+      "role": "documentation",
+      "description": "Document the API for marking todos complete.",
+      "depends_on": [
+        "T5",
+        "T11"
+      ]
+    },
+    {
+      "id": "T18",
+      "role": "documentation",
+      "description": "Document the API for deleting todos.",
+      "depends_on": [
+        "T6",
+        "T12"
+      ]
+    },
+    {
+      "id": "T19",
+      "role": "documentation",
+      "description": "Document the API for handling missing IDs.",
+      "depends_on": [
+        "T7",
+        "T13"
+      ]
+    },
+    {
+      "id": "T20",
+      "role": "reviewer",
+      "description": "Review the implementation of creating todos.",
+      "depends_on": [
+        "T2",
+        "T8"
+      ]
+    },
+    {
+      "id": "T21",
+      "role": "reviewer",
+      "description": "Review the implementation of retrieving todos.",
+      "depends_on": [
+        "T3",
+        "T9"
+      ]
+    },
+    {
+      "id": "T22",
+      "role": "reviewer",
+      "description": "Review the implementation of listing todos.",
+      "depends_on": [
+        "T4",
+        "T10"
+      ]
+    },
+    {
+      "id": "T23",
+      "role": "reviewer",
+      "description": "Review the implementation of marking todos complete.",
+      "depends_on": [
+        "T5",
+        "T11"
+      ]
+    },
+    {
+      "id": "T24",
+      "role": "reviewer",
+      "description": "Review the implementation of deleting todos.",
+      "depends_on": [
+        "T6",
+        "T12"
+      ]
+    },
+    {
+      "id": "T25",
+      "role": "reviewer",
+      "description": "Review the implementation of handling missing IDs.",
+      "depends_on": [
+        "T7",
+        "T13"
+      ]
+    },
+    {
+      "id": "T26",
+      "role": "reviewer",
+      "description": "Review the documentation.",
+      "depends_on": [
+        "T14",
+        "T15",
+        "T16",
+        "T17",
+        "T18",
+        "T19"
+      ]
+    },
+    {
+      "id": "T27",
+      "role": "reviewer",
+      "description": "Final quality review of the entire project.",
+      "depends_on": [
+        "T20",
+        "T21",
+        "T22",
+        "T23",
+        "T24",
+        "T25",
+        "T26"
+      ]
+    }
+  ]
+}
+
+
+########################################################################
+PLANNING level3_fastapi
+########################################################################
+
+========================================================================
+level3_fastapi
+========================================================================
+task_count              : 11
+roles                   : {'developer': 8, 'tester': 1, 'documentation': 1, 'reviewer': 1}
+duplicate_ids           : False
+invalid_roles           : 0
+invalid_dependencies    : 0
+ordering_errors         : 1
+root_tasks              : 1
+review_tasks            : 1
+final_reviews           : 0
+max_depth               : 6
+
+Generated plan:
+{
+  "project": "FastAPI CRUD Service for Notes",
+  "tasks": [
+    {
+      "id": "T1",
+      "role": "developer",
+      "description": "Create FastAPI application",
+      "depends_on": []
+    },
+    {
+      "id": "T2",
+      "role": "developer",
+      "description": "Define Note model with id, title, and content",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T3",
+      "role": "developer",
+      "description": "Implement Create note endpoint",
+      "depends_on": [
+        "T2",
+        "T4"
+      ]
+    },
+    {
+      "id": "T4",
+      "role": "developer",
+      "description": "Implement input validation",
+      "depends_on": [
+        "T2"
+      ]
+    },
+    {
+      "id": "T5",
+      "role": "developer",
+      "description": "Implement Get note endpoint",
+      "depends_on": [
+        "T2",
+        "T4"
+      ]
+    },
+    {
+      "id": "T6",
+      "role": "developer",
+      "description": "Implement List notes endpoint",
+      "depends_on": [
+        "T2",
+        "T4"
+      ]
+    },
+    {
+      "id": "T7",
+      "role": "developer",
+      "description": "Implement Update note endpoint",
+      "depends_on": [
+        "T2",
+        "T4"
+      ]
+    },
+    {
+      "id": "T8",
+      "role": "developer",
+      "description": "Implement Delete note endpoint",
+      "depends_on": [
+        "T2",
+        "T4"
+      ]
+    },
+    {
+      "id": "T9",
+      "role": "tester",
+      "description": "Write automated API tests for CRUD operations",
+      "depends_on": [
+        "T3",
+        "T5",
+        "T6",
+        "T7",
+        "T8"
+      ]
+    },
+    {
+      "id": "T10",
+      "role": "documentation",
+      "description": "Document the FastAPI CRUD service",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T5",
+        "T6",
+        "T7",
+        "T8"
+      ]
+    },
+    {
+      "id": "T11",
+      "role": "reviewer",
+      "description": "Review the entire project",
+      "depends_on": [
+        "T3",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9",
+        "T10"
+      ]
+    }
+  ]
+}
+
+
+########################################################################
+PLANNING level4_auth_api
+########################################################################
+
+========================================================================
+level4_auth_api
+========================================================================
+task_count              : 19
+roles                   : {'developer': 9, 'tester': 4, 'documentation': 2, 'reviewer': 4}
+duplicate_ids           : False
+invalid_roles           : 0
+invalid_dependencies    : 0
+ordering_errors         : 0
+root_tasks              : 1
+review_tasks            : 4
+final_reviews           : 1
+max_depth               : 14
+
+Generated plan:
+{
+  "project": "Authentication REST API",
+  "tasks": [
+    {
+      "id": "T1",
+      "role": "developer",
+      "description": "Design database schema for users",
+      "depends_on": []
+    },
+    {
+      "id": "T2",
+      "role": "developer",
+      "description": "Implement user registration endpoint",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T3",
+      "role": "developer",
+      "description": "Implement unique username validation",
+      "depends_on": [
+        "T2"
+      ]
+    },
+    {
+      "id": "T4",
+      "role": "developer",
+      "description": "Implement password hashing",
+      "depends_on": [
+        "T3"
+      ]
+    },
+    {
+      "id": "T5",
+      "role": "developer",
+      "description": "Implement user login endpoint",
+      "depends_on": [
+        "T4"
+      ]
+    },
+    {
+      "id": "T6",
+      "role": "developer",
+      "description": "Implement token generation",
+      "depends_on": [
+        "T5"
+      ]
+    },
+    {
+      "id": "T7",
+      "role": "developer",
+      "description": "Implement authentication-protected endpoint",
+      "depends_on": [
+        "T6"
+      ]
+    },
+    {
+      "id": "T8",
+      "role": "developer",
+      "description": "Implement invalid credential handling",
+      "depends_on": [
+        "T7"
+      ]
+    },
+    {
+      "id": "T9",
+      "role": "developer",
+      "description": "Implement persistent user storage",
+      "depends_on": [
+        "T8"
+      ]
+    },
+    {
+      "id": "T10",
+      "role": "tester",
+      "description": "Write automated tests for registration",
+      "depends_on": [
+        "T2",
+        "T9"
+      ]
+    },
+    {
+      "id": "T11",
+      "role": "tester",
+      "description": "Write automated tests for login",
+      "depends_on": [
+        "T5",
+        "T9"
+      ]
+    },
+    {
+      "id": "T12",
+      "role": "tester",
+      "description": "Write automated tests for authentication",
+      "depends_on": [
+        "T7",
+        "T9"
+      ]
+    },
+    {
+      "id": "T13",
+      "role": "tester",
+      "description": "Write security-related edge case tests",
+      "depends_on": [
+        "T10",
+        "T11",
+        "T12"
+      ]
+    },
+    {
+      "id": "T14",
+      "role": "documentation",
+      "description": "Document API endpoints",
+      "depends_on": [
+        "T2",
+        "T5",
+        "T7"
+      ]
+    },
+    {
+      "id": "T15",
+      "role": "documentation",
+      "description": "Document security practices",
+      "depends_on": [
+        "T13"
+      ]
+    },
+    {
+      "id": "T16",
+      "role": "reviewer",
+      "description": "Review code implementation",
+      "depends_on": [
+        "T2",
+        "T5",
+        "T7",
+        "T9"
+      ]
+    },
+    {
+      "id": "T17",
+      "role": "reviewer",
+      "description": "Review test coverage",
+      "depends_on": [
+        "T10",
+        "T11",
+        "T12",
+        "T13"
+      ]
+    },
+    {
+      "id": "T18",
+      "role": "reviewer",
+      "description": "Review documentation",
+      "depends_on": [
+        "T14",
+        "T15"
+      ]
+    },
+    {
+      "id": "T19",
+      "role": "reviewer",
+      "description": "Final quality review",
+      "depends_on": [
+        "T16",
+        "T17",
+        "T18"
+      ]
+    }
+  ]
+}
+
+
+########################################################################
+PLANNING level5_issue_tracker
+########################################################################
+
+========================================================================
+level5_issue_tracker
+========================================================================
+task_count              : 15
+roles                   : {'developer': 8, 'tester': 2, 'documentation': 2, 'reviewer': 3}
+duplicate_ids           : False
+invalid_roles           : 0
+invalid_dependencies    : 0
+ordering_errors         : 0
+root_tasks              : 1
+review_tasks            : 3
+final_reviews           : 0
+max_depth               : 14
+
+Generated plan:
+{
+  "project": "Issue Tracking Backend",
+  "tasks": [
+    {
+      "id": "T1",
+      "role": "developer",
+      "description": "Design database schema for users, projects, issues, and comments.",
+      "depends_on": []
+    },
+    {
+      "id": "T2",
+      "role": "developer",
+      "description": "Implement user model with authentication and authorization.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T3",
+      "role": "developer",
+      "description": "Implement project model with CRUD operations.",
+      "depends_on": [
+        "T1",
+        "T2"
+      ]
+    },
+    {
+      "id": "T4",
+      "role": "developer",
+      "description": "Implement issue model with CRUD operations and assignment functionality.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3"
+      ]
+    },
+    {
+      "id": "T5",
+      "role": "developer",
+      "description": "Implement comment model associated with issues.",
+      "depends_on": [
+        "T1",
+        "T4"
+      ]
+    },
+    {
+      "id": "T6",
+      "role": "developer",
+      "description": "Develop persistent storage solution (e.g., using a relational database).",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T7",
+      "role": "developer",
+      "description": "Implement input validation logic for all models.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6"
+      ]
+    },
+    {
+      "id": "T8",
+      "role": "developer",
+      "description": "Handle missing resource scenarios gracefully.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7"
+      ]
+    },
+    {
+      "id": "T9",
+      "role": "tester",
+      "description": "Write automated unit tests for all models and functionalities.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8"
+      ]
+    },
+    {
+      "id": "T10",
+      "role": "tester",
+      "description": "Write automated integration tests for system-level interactions.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9"
+      ]
+    },
+    {
+      "id": "T11",
+      "role": "documentation",
+      "description": "Document setup instructions for the backend environment.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9",
+        "T10"
+      ]
+    },
+    {
+      "id": "T12",
+      "role": "documentation",
+      "description": "Create API documentation detailing endpoints and usage.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9",
+        "T10",
+        "T11"
+      ]
+    },
+    {
+      "id": "T13",
+      "role": "reviewer",
+      "description": "Review all developed code for quality and adherence to design specifications.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9",
+        "T10",
+        "T11",
+        "T12"
+      ]
+    },
+    {
+      "id": "T14",
+      "role": "reviewer",
+      "description": "Review all test cases for completeness and effectiveness.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9",
+        "T10",
+        "T11",
+        "T12",
+        "T13"
+      ]
+    },
+    {
+      "id": "T15",
+      "role": "reviewer",
+      "description": "Review all documentation for clarity and completeness.",
+      "depends_on": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T14"
+      ]
+    }
+  ]
+}
+
+Saved: results/planner_benchmark.json

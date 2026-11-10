@@ -1,0 +1,59 @@
+Loading MARL PPO scheduler...
+Loading MARL PPO scheduler:
+/home/jovyan/marl-dev-team/results/checkpoints/marl_ppo_alpha_0_25
+Loading shared 7B LLM...
+Loading Qwen/Qwen2.5-Coder-7B-Instruct in 4-bit on cuda:0
+Model loaded successfully.
+Allocated: 5.18 GB
+Reserved: 5.33 GB
+Free: 4.04 GB
+Total: 9.50 GB
+
+========================================================================
+RL-SCHEDULED REAL 7B LLM TEAM
+========================================================================
+
+========================================================================
+STEP 0
+State: {'step': 0, 'dev_tasks': 5, 'untested_work': 0, 'bugs': 0, 'docs_progress': 0.0, 'docs_complete': False, 'review_rejected': False, 'review_complete': False}
+Requested: ['developer', 'documentation']
+Allocated: ['developer', 'documentation']
+
+[Developer] executing
+Mode: implementation
+Created app.py
+
+[Documentation] executing
+Created README.md
+
+========================================================================
+STEP 1
+State: {'step': 1, 'dev_tasks': 0, 'untested_work': 1, 'bugs': 0, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': False, 'review_complete': False}
+Requested: ['tester', 'reviewer']
+Allocated: ['tester', 'reviewer']
+
+[Tester] executing
+
+pytest:
+............                                                                                                                                           [100%]
+12 passed in 0.02s
+Tests passed.
+
+[Reviewer] executing
+
+Review:
+{
+  "approved": true,
+  "score": 1.0,
+  "issues": [],
+  "send_back_to": "none",
+  "reason": "All requirements are met, tests pass, and documentation is accurate."
+}
+
+========================================================================
+PROJECT COMPLETED
+========================================================================
+
+Final state: {'step': 1, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 0, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': False, 'review_complete': True}
+
+Workspace: /home/jovyan/marl-dev-team/workspaces/rl_bank_demo

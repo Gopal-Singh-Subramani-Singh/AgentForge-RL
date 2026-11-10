@@ -1,0 +1,2071 @@
+Loading Qwen/Qwen2.5-Coder-7B-Instruct in 4-bit on cuda:0
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights:   0%|          | 1/339 [00:00<01:33,  3.61it/s]Loading weights:   1%|          | 2/339 [00:00<01:29,  3.77it/s]Loading weights:   1%|▏         | 5/339 [00:00<00:33, 10.04it/s]Loading weights:   8%|▊         | 28/339 [00:00<00:04, 63.51it/s]Loading weights:  12%|█▏        | 42/339 [00:00<00:03, 82.35it/s]Loading weights:  19%|█▉        | 65/339 [00:00<00:02, 116.93it/s]Loading weights:  26%|██▌       | 88/339 [00:01<00:01, 141.19it/s]Loading weights:  31%|███       | 104/339 [00:04<00:15, 15.36it/s]Loading weights:  34%|███▍      | 115/339 [00:07<00:25,  8.62it/s]Loading weights:  36%|███▋      | 123/339 [00:07<00:22,  9.73it/s]Loading weights:  38%|███▊      | 129/339 [00:08<00:19, 10.93it/s]Loading weights:  44%|████▍     | 149/339 [00:08<00:10, 18.74it/s]Loading weights:  51%|█████     | 172/339 [00:08<00:05, 30.37it/s]Loading weights:  55%|█████▍    | 186/339 [00:08<00:03, 38.34it/s]Loading weights:  62%|██████▏   | 209/339 [00:08<00:02, 55.79it/s]Loading weights:  66%|██████▌   | 224/339 [00:09<00:03, 33.92it/s]Loading weights:  69%|██████▉   | 235/339 [00:12<00:09, 11.45it/s]Loading weights:  72%|███████▏  | 243/339 [00:13<00:07, 12.52it/s]Loading weights:  74%|███████▎  | 250/339 [00:15<00:11,  7.55it/s]Loading weights:  75%|███████▌  | 255/339 [00:15<00:09,  8.69it/s]Loading weights:  77%|███████▋  | 260/339 [00:18<00:15,  4.96it/s]Loading weights:  78%|███████▊  | 264/339 [00:18<00:13,  5.59it/s]Loading weights:  79%|███████▉  | 268/339 [00:19<00:13,  5.41it/s]Loading weights:  80%|███████▉  | 270/339 [00:21<00:18,  3.77it/s]Loading weights:  81%|████████  | 274/339 [00:21<00:14,  4.64it/s]Loading weights:  81%|████████▏ | 276/339 [00:21<00:12,  5.19it/s]Loading weights:  83%|████████▎ | 280/339 [00:22<00:11,  5.10it/s]Loading weights:  83%|████████▎ | 282/339 [00:24<00:17,  3.22it/s]Loading weights:  84%|████████▍ | 286/339 [00:24<00:12,  4.35it/s]Loading weights:  86%|████████▌ | 292/339 [00:25<00:08,  5.36it/s]Loading weights:  86%|████████▋ | 293/339 [00:26<00:10,  4.26it/s]Loading weights:  87%|████████▋ | 294/339 [00:27<00:13,  3.26it/s]Loading weights:  88%|████████▊ | 298/339 [00:27<00:08,  5.10it/s]Loading weights:  88%|████████▊ | 300/339 [00:27<00:06,  5.70it/s]Loading weights:  89%|████████▉ | 302/339 [00:27<00:05,  6.71it/s]Loading weights:  90%|████████▉ | 304/339 [00:28<00:07,  4.38it/s]Loading weights:  90%|█████████ | 306/339 [00:29<00:12,  2.64it/s]Loading weights:  91%|█████████▏| 310/339 [00:30<00:06,  4.27it/s]Loading weights:  93%|█████████▎| 316/339 [00:30<00:04,  5.35it/s]Loading weights:  94%|█████████▍| 318/339 [00:32<00:06,  3.20it/s]Loading weights:  95%|█████████▍| 322/339 [00:32<00:03,  4.56it/s]Loading weights:  96%|█████████▌| 324/339 [00:32<00:02,  5.36it/s]Loading weights:  97%|█████████▋| 328/339 [00:33<00:02,  5.03it/s]Loading weights:  97%|█████████▋| 330/339 [00:35<00:02,  3.19it/s]Loading weights:  99%|█████████▊| 334/339 [00:35<00:01,  4.57it/s]Loading weights:  99%|█████████▉| 336/339 [00:35<00:00,  5.13it/s]Loading weights: 100%|██████████| 339/339 [00:35<00:00,  9.46it/s]
+Model loaded successfully.
+Allocated: 5.18 GB
+Reserved: 5.33 GB
+Free: 4.04 GB
+Total: 9.50 GB
+Loading MARL PPO scheduler:
+/home/jovyan/marl-dev-team/results/checkpoints/marl_ppo_alpha_0_25
+2026-11-01 06:28:15,993	WARNING algorithm_config.py:5159 -- You are running PPO on the new API stack! This is the new default behavior for this algorithm. If you don't want to use the new API stack, set `config.api_stack(enable_rl_module_and_learner=False,enable_env_runner_and_connector_v2=False)`. For a detailed migration guide, see here: https://docs.ray.io/en/master/rllib/new-api-stack-migration-guide.html
+2026-11-01 06:28:18,492	WARNING services.py:2248 -- WARNING: The object store is using /tmp/ray instead of /dev/shm because /dev/shm has only 67104768 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm. If you are inside a Docker container, you can increase /dev/shm size by passing '--shm-size=4.80gb' to 'docker run' (or add it to the run_options list in a Ray cluster config). Make sure to set this to more than 30% of available RAM.
+2026-11-01 06:28:21,683	INFO worker.py:2024 -- Started a local Ray instance.
+2026-11-01 06:28:35,738	WARNING rl_module.py:463 -- DeprecationWarning: `RLModule(config=[RLModuleConfig object])` has been deprecated. Use `RLModule(observation_space=.., action_space=.., inference_only=.., model_config=.., catalog_class=..)` instead. This will raise an error in the future!
+2026-11-01 06:28:35,912	INFO trainable.py:154 -- Trainable.setup took 19.917 seconds. If your trainable is slow to initialize, consider setting reuse_actors=True to reduce actor creation overheads.
+2026-11-01 06:28:35,913	WARNING util.py:62 -- Install gputil for GPU system monitoring.
+{
+  "project": "Expense Tracker",
+  "tasks": [
+    {
+      "id": "T1",
+      "role": "developer",
+      "description": "Design the application architecture",
+      "depends_on": []
+    },
+    {
+      "id": "T2",
+      "role": "developer",
+      "description": "Implement core data model (Expense class)",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T3",
+      "role": "developer",
+      "description": "Develop user interface functions (add expense, list expenses, etc.)",
+      "depends_on": [
+        "T2"
+      ]
+    },
+    {
+      "id": "T4",
+      "role": "developer",
+      "description": "Implement functionality to calculate total spending",
+      "depends_on": [
+        "T2"
+      ]
+    },
+    {
+      "id": "T5",
+      "role": "developer",
+      "description": "Create JSON file handling functions (save, load)",
+      "depends_on": [
+        "T2"
+      ]
+    },
+    {
+      "id": "T6",
+      "role": "tester",
+      "description": "Write unit tests for Expense class",
+      "depends_on": [
+        "T2"
+      ]
+    },
+    {
+      "id": "T7",
+      "role": "tester",
+      "description": "Test user interface functions",
+      "depends_on": [
+        "T3"
+      ]
+    },
+    {
+      "id": "T8",
+      "role": "tester",
+      "description": "Validate total spending calculation",
+      "depends_on": [
+        "T4"
+      ]
+    },
+    {
+      "id": "T9",
+      "role": "tester",
+      "description": "Check JSON file handling",
+      "depends_on": [
+        "T5"
+      ]
+    },
+    {
+      "id": "T10",
+      "role": "documentation",
+      "description": "Write README with usage examples",
+      "depends_on": [
+        "T3",
+        "T4",
+        "T5"
+      ]
+    },
+    {
+      "id": "T11",
+      "role": "reviewer",
+      "description": "Final code review",
+      "depends_on": [
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9"
+      ]
+    }
+  ]
+}
+
+========================================================================
+STEP 0
+========================================================================
+{'project': 'Expense Tracker', 'step': 0, 'completed': 0, 'total': 11, 'ready': {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 0, 'complete': False}
+
+[DEVELOPER]
+T1 Design the application architecture
+
+========================================================================
+STEP 1
+========================================================================
+{'project': 'Expense Tracker', 'step': 1, 'completed': 1, 'total': 11, 'ready': {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 0, 'complete': False}
+
+[DEVELOPER]
+T2 Implement core data model (Expense class)
+
+========================================================================
+STEP 2
+========================================================================
+{'project': 'Expense Tracker', 'step': 2, 'completed': 2, 'total': 11, 'ready': {'developer': 3, 'tester': 1, 'documentation': 0, 'reviewer': 0}, 'bugs': 0, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T6 Write unit tests for Expense class
+..F                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_expense_from_dict ______________________________________________________________________________
+
+    def test_expense_from_dict():
+        expense_dict = {'amount': 100.5, 'category': 'Groceries', 'description': 'Weekly grocery shopping', 'date': '2023-04-01 12:00:00'}
+        expense = Expense.from_dict(expense_dict)
+        assert expense.amount == 100.5
+        assert expense.category == 'Groceries'
+        assert expense.description == 'Weekly grocery shopping'
+>       assert expense.date == '2023-04-01 12:00:00'
+E       AssertionError: assert '2026-11-01 06:30:50' == '2023-04-01 12:00:00'
+E         
+E         - 2023-04-01 12:00:00
+E         + 2026-11-01 06:30:50
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t6.py:27: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t6.py::test_expense_from_dict - AssertionError: assert '2026-11-01 06:30:50' == '2023-04-01 12:00:00'
+1 failed, 2 passed in 0.03s
+Reopened Developer: T2
+
+========================================================================
+STEP 3
+========================================================================
+{'project': 'Expense Tracker', 'step': 3, 'completed': 2, 'total': 11, 'ready': {'developer': 3, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T2 Implement core data model (Expense class)
+
+[TESTER]
+T6 Write unit tests for Expense class
+..F                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_expense_from_dict ______________________________________________________________________________
+
+    def test_expense_from_dict():
+        expense_dict = {'amount': 100.5, 'category': 'Groceries', 'description': 'Weekly grocery shopping', 'date': '2023-04-01 12:00:00'}
+        expense = Expense.from_dict(expense_dict)
+        assert expense.amount == 100.5
+        assert expense.category == 'Groceries'
+        assert expense.description == 'Weekly grocery shopping'
+>       assert expense.date == '2023-04-01 12:00:00'
+E       AssertionError: assert '2026-11-01 06:31:27' == '2023-04-01 12:00:00'
+E         
+E         - 2023-04-01 12:00:00
+E         + 2026-11-01 06:31:27
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t6.py:27: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t6.py::test_expense_from_dict - AssertionError: assert '2026-11-01 06:31:27' == '2023-04-01 12:00:00'
+1 failed, 2 passed in 0.03s
+Reopened Developer: T2
+
+========================================================================
+STEP 4
+========================================================================
+{'project': 'Expense Tracker', 'step': 4, 'completed': 2, 'total': 11, 'ready': {'developer': 3, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T2 Implement core data model (Expense class)
+
+[TESTER]
+T6 Write unit tests for Expense class
+...                                                                                                                                                                         [100%]
+3 passed in 0.02s
+
+========================================================================
+STEP 5
+========================================================================
+{'project': 'Expense Tracker', 'step': 5, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 1, 'documentation': 0, 'reviewer': 0}, 'bugs': 0, 'complete': False}
+
+[DEVELOPER]
+T4 Implement functionality to calculate total spending
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.TemporaryDirectory() as tmpdir:
+            filename = os.path.join(tmpdir, 'expenses.json')
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           AssertionError: assert 2 == 0
+E            +  where 2 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ...h] {add,list,total,save,load} ...\ncli.py: error: unrecognized arguments: --filename /tmp/tmpcsnxja8a/expenses.json\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.TemporaryDirectory() as tmpdir:
+            filename = os.path.join(tmpdir, 'expenses.json')
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename])
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           AssertionError: assert 2 == 0
+E            +  where 2 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmptvwoayup/expenses.json'],...h] {add,list,total,save,load} ...\ncli.py: error: unrecognized arguments: --filename /tmp/tmptvwoayup/expenses.json\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+------------------------------------------------------------------------------ Captured stderr call -------------------------------------------------------------------------------
+usage: cli.py [-h] {add,list,total,save,load} ...
+cli.py: error: unrecognized arguments: --filename /tmp/tmptvwoayup/expenses.json
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.TemporaryDirectory() as tmpdir:
+            filename = os.path.join(tmpdir, 'expenses.json')
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename])
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           AssertionError: assert 2 == 0
+E            +  where 2 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmptyluqnn5/expenses.json']...h] {add,list,total,save,load} ...\ncli.py: error: unrecognized arguments: --filename /tmp/tmptyluqnn5/expenses.json\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+------------------------------------------------------------------------------ Captured stderr call -------------------------------------------------------------------------------
+usage: cli.py [-h] {add,list,total,save,load} ...
+cli.py: error: unrecognized arguments: --filename /tmp/tmptyluqnn5/expenses.json
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - AssertionError: assert 2 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert 2 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - AssertionError: assert 2 == 0
+3 failed in 0.20s
+Reopened Developer: T3
+
+========================================================================
+STEP 6
+========================================================================
+{'project': 'Expense Tracker', 'step': 6, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+.FF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+________________________________________________________________________________ test_cli_version _________________________________________________________________________________
+
+    def test_cli_version():
+        result = subprocess.run(['python', '-m', 'expense_tracker.cli', '--version'], capture_output=True, text=True)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', '--version'], returncode=2, stdout='', stderr='usage: cli.py [-h] {add,list,total,save,load} ...\ncli.py: error: unrecognized arguments: --version\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:18: AssertionError
+____________________________________________________________________________ test_cli_invalid_command _____________________________________________________________________________
+
+    def test_cli_invalid_command():
+        result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'invalid_command'], capture_output=True, text=True)
+        assert result.returncode != 0
+>       assert 'error: unrecognized arguments' in result.stderr
+E       assert 'error: unrecognized arguments' in "usage: cli.py [-h] {add,list,total,save,load} ...\ncli.py: error: argument command: invalid choice: 'invalid_command' (choose from 'add', 'list', 'total', 'save', 'load')\n"
+E        +  where "usage: cli.py [-h] {add,list,total,save,load} ...\ncli.py: error: argument command: invalid choice: 'invalid_command' (choose from 'add', 'list', 'total', 'save', 'load')\n" = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'invalid_command'], returncode=2, stdout='', stderr="usa...py: error: argument command: invalid choice: 'invalid_command' (choose from 'add', 'list', 'total', 'save', 'load')\n").stderr
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:24: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_version - AssertionError: assert 2 == 0
+FAILED tests/test_t7.py::test_cli_invalid_command - assert 'error: unrecognized arguments' in "usage: cli.py [-h] {add,list,total,save,load} ...\ncli.py: error: argument comman...
+2 failed, 1 passed in 0.13s
+Reopened Developer: T3
+
+========================================================================
+STEP 7
+========================================================================
+{'project': 'Expense Tracker', 'step': 7, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FF                                                                                                                                                                          [100%]
+==================================================================================== FAILURES =====================================================================================
+________________________________________________________________________________ test_cli_version _________________________________________________________________________________
+
+    def test_cli_version():
+        result = subprocess.run(['python', '-m', 'expense_tracker.cli', '--version'], capture_output=True, text=True)
+>       assert result.returncode == 0
+E       AssertionError: assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', '--version'], returncode=2, stdout='', stderr='usage: cli.py [-h] {add,list,total,save,load} ...\ncli.py: error: unrecognized arguments: --version\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:13: AssertionError
+____________________________________________________________________________ test_cli_invalid_command _____________________________________________________________________________
+
+    def test_cli_invalid_command():
+        result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'invalid_command'], capture_output=True, text=True)
+        assert result.returncode != 0
+>       assert 'unrecognized arguments' in result.stderr
+E       assert 'unrecognized arguments' in "usage: cli.py [-h] {add,list,total,save,load} ...\ncli.py: error: argument command: invalid choice: 'invalid_command' (choose from 'add', 'list', 'total', 'save', 'load')\n"
+E        +  where "usage: cli.py [-h] {add,list,total,save,load} ...\ncli.py: error: argument command: invalid choice: 'invalid_command' (choose from 'add', 'list', 'total', 'save', 'load')\n" = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'invalid_command'], returncode=2, stdout='', stderr="usa...py: error: argument command: invalid choice: 'invalid_command' (choose from 'add', 'list', 'total', 'save', 'load')\n").stderr
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:19: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_version - AssertionError: assert 2 == 0
+FAILED tests/test_t7.py::test_cli_invalid_command - assert 'unrecognized arguments' in "usage: cli.py [-h] {add,list,total,save,load} ...\ncli.py: error: argument command: inva...
+2 failed in 0.09s
+Reopened Developer: T3
+
+========================================================================
+STEP 8
+========================================================================
+{'project': 'Expense Tracker', 'step': 8, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:15: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpuvzuo3cn'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:23: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpea_xmv31'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:31: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 9
+========================================================================
+{'project': 'Expense Tracker', 'step': 9, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpgm_v5qj_'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpwiy7mtti'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 10
+========================================================================
+{'project': 'Expense Tracker', 'step': 10, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpmbwzotat'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpubodtrq1'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 11
+========================================================================
+{'project': 'Expense Tracker', 'step': 11, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmps4zp2ksw'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpbprywtp_'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 12
+========================================================================
+{'project': 'Expense Tracker', 'step': 12, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpz4tl9hpl'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpik75fr54'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 13
+========================================================================
+{'project': 'Expense Tracker', 'step': 13, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp286zotgw'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpbivcvsaz'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 14
+========================================================================
+{'project': 'Expense Tracker', 'step': 14, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp2cwhrre_'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmp8zge9c66'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 15
+========================================================================
+{'project': 'Expense Tracker', 'step': 15, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpnd_9rkvm'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmp2nmenv5u'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 16
+========================================================================
+{'project': 'Expense Tracker', 'step': 16, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp3skjsu9z'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmp4dz7v8ce'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 17
+========================================================================
+{'project': 'Expense Tracker', 'step': 17, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpqiflcsfa'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpc8yyq92r'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 18
+========================================================================
+{'project': 'Expense Tracker', 'step': 18, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp5xdaxog6'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpgvzib1o_'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 19
+========================================================================
+{'project': 'Expense Tracker', 'step': 19, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp5r7noa6n'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpz3d8mtr1'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.25s
+Reopened Developer: T3
+
+========================================================================
+STEP 20
+========================================================================
+{'project': 'Expense Tracker', 'step': 20, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp2nfygw0y'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmp2ilxdbdg'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 21
+========================================================================
+{'project': 'Expense Tracker', 'step': 21, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpgmwle_5c'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmp3b0re8yy'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 22
+========================================================================
+{'project': 'Expense Tracker', 'step': 22, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmptec19uw1'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpd4rts97t'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 23
+========================================================================
+{'project': 'Expense Tracker', 'step': 23, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp8hjhvn2y'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmp0so5ohiz'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 24
+========================================================================
+{'project': 'Expense Tracker', 'step': 24, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp928l65p_'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmp1u9aw5q1'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 25
+========================================================================
+{'project': 'Expense Tracker', 'step': 25, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpt8pzjdzd'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpr3q296zc'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 26
+========================================================================
+{'project': 'Expense Tracker', 'step': 26, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp6azs4hzw'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmp0znj9diw'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 27
+========================================================================
+{'project': 'Expense Tracker', 'step': 27, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpex8rxn0b'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmp0mq7yn5b'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 28
+========================================================================
+{'project': 'Expense Tracker', 'step': 28, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpd9shc9zb'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpxvpi1bp8'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 29
+========================================================================
+{'project': 'Expense Tracker', 'step': 29, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpnjbcbzc8'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpfn47mbfx'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 30
+========================================================================
+{'project': 'Expense Tracker', 'step': 30, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpa0mi8fy6'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmp0bsyfdi5'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 31
+========================================================================
+{'project': 'Expense Tracker', 'step': 31, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp_cefb50h'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpc3nvdsnh'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 32
+========================================================================
+{'project': 'Expense Tracker', 'step': 32, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpsfju2ept'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpzcvcc7w7'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 33
+========================================================================
+{'project': 'Expense Tracker', 'step': 33, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpy85ztruj'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmp_bkt9tei'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 34
+========================================================================
+{'project': 'Expense Tracker', 'step': 34, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpbptl8021'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpif6mqfsv'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 35
+========================================================================
+{'project': 'Expense Tracker', 'step': 35, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp00i5nbg_'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpejm170ol'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 36
+========================================================================
+{'project': 'Expense Tracker', 'step': 36, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp6bmwa2f1'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpumeucjf5'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 37
+========================================================================
+{'project': 'Expense Tracker', 'step': 37, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmpw1jzegdx'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpsuv16o5s'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 38
+========================================================================
+{'project': 'Expense Tracker', 'step': 38, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp8_eult5b'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpjuiwpouc'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+
+========================================================================
+STEP 39
+========================================================================
+{'project': 'Expense Tracker', 'step': 39, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses, etc.)
+
+[TESTER]
+T7 Test user interface functions
+FFF                                                                                                                                                                         [100%]
+==================================================================================== FAILURES =====================================================================================
+______________________________________________________________________________ test_cli_add_expense _______________________________________________________________________________
+
+    def test_cli_add_expense():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', ..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:14: AssertionError
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+    def test_cli_list_expenses():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'list', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'list', '--filename', '/tmp/tmp1dnwhjvi'], returncode=1,..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:22: AssertionError
+____________________________________________________________________________ test_cli_calculate_total _____________________________________________________________________________
+
+    def test_cli_calculate_total():
+        with tempfile.NamedTemporaryFile(delete=False) as temp_file:
+            filename = temp_file.name
+            subprocess.run(['python', '-m', 'expense_tracker.cli', 'add', '100.5', 'Groceries', 'Weekly grocery shopping', '--filename', filename], capture_output=True, text=True)
+            result = subprocess.run(['python', '-m', 'expense_tracker.cli', 'total', '--filename', filename], capture_output=True, text=True)
+>           assert result.returncode == 0
+E           assert 1 == 0
+E            +  where 1 = CompletedProcess(args=['python', '-m', 'expense_tracker.cli', 'total', '--filename', '/tmp/tmpbv8s4qnz'], returncode=1..."Expecting value", s, err.value) from None\njson.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\n').returncode
+
+/home/jovyan/marl-dev-team/workspaces/expense_tracker/tests/test_t7.py:30: AssertionError
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_add_expense - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_list_expenses - assert 1 == 0
+FAILED tests/test_t7.py::test_cli_calculate_total - assert 1 == 0
+3 failed in 0.26s
+Reopened Developer: T3
+MAX STEPS REACHED

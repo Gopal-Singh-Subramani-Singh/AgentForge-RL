@@ -534,7 +534,8 @@ def save_checkpoint(
 ):
 
     checkpoint_dir = Path(
-        "results/checkpoints/marl_grpo"
+        f"results/checkpoints/"
+        f"marl_grpo_g{args.group_size}"
     )
 
     checkpoint_dir.mkdir(

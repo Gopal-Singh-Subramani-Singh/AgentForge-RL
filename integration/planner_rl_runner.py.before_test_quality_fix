@@ -1,0 +1,912 @@
+import ast
+import subprocess
+import json
+from pathlib import Path
+
+from agents.developer import DeveloperAgent
+from agents.tester import TesterAgent
+from agents.documentation import DocumentationAgent
+from agents.reviewer import ReviewerAgent
+
+from planner.planner import PlannerAgent
+from llm.model_7b import LocalLLM7B
+
+from integration.planned_project import PlannedProject
+from integration.rl_scheduler import MARLPPOScheduler
+
+
+PROJECT_REQUEST = """
+Build a small Python todo management module.
+
+Requirements:
+- create todos with unique IDs
+- retrieve a todo by ID
+- list all todos
+- mark todos complete
+- delete todos
+- handle missing IDs gracefully
+- include automated tests
+- include documentation
+"""
+
+WORKSPACE = Path("workspaces/planner_rl_demo")
+MAX_STEPS = 30
+RESOURCES = 2
+
+
+def extract_text(result):
+    if isinstance(result, str):
+        return result
+
+    if isinstance(result, dict):
+        for key in [
+            "text",
+            "content",
+            "code",
+            "response",
+            "output",
+            "result",
+        ]:
+            value = result.get(key)
+
+            if isinstance(value, str):
+                return value
+
+        raise ValueError(
+            "No text field found in model result. "
+            f"Available keys: {list(result.keys())}"
+        )
+
+    raise TypeError(
+        f"Unsupported model result type: {type(result).__name__}"
+    )
+
+
+
+def clean_generated_python(value):
+    text = extract_text(value).strip()
+
+    # Prefer the contents of the first Markdown code block.
+    if "```" in text:
+        first = text.find("```")
+        after_open = text.find("\n", first)
+
+        if after_open != -1:
+            close = text.find(
+                "```",
+                after_open + 1,
+            )
+
+            if close != -1:
+                text = text[
+                    after_open + 1:close
+                ].strip()
+
+    # Remove any stray fence lines.
+    cleaned = []
+
+    for line in text.splitlines():
+        if line.strip().startswith("```"):
+            continue
+
+        cleaned.append(line)
+
+    return "\n".join(cleaned).strip()
+
+
+def strip_fences(text):
+    text = extract_text(text)
+    text = text.strip()
+
+    if text.startswith("```python"):
+        text = text[len("```python"):]
+
+    elif text.startswith("```"):
+        text = text[3:]
+
+    if text.endswith("```"):
+        text = text[:-3]
+
+    return text.strip()
+
+
+def write_project_file(filename, content):
+    WORKSPACE.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    path = WORKSPACE / filename
+
+    path.write_text(
+        strip_fences(content)
+    )
+
+    return path
+
+
+def collect_project_files():
+    files = {}
+
+    if not WORKSPACE.exists():
+        return files
+
+    for path in WORKSPACE.iterdir():
+        if path.is_file():
+            try:
+                files[path.name] = path.read_text()
+            except Exception:
+                pass
+
+    return files
+
+
+def main():
+    print("=" * 72)
+    print("PLANNER + MARL + REAL 7B TEAM")
+    print("=" * 72)
+
+    # --------------------------------------------------
+    # Load model once
+    # --------------------------------------------------
+
+    print("\nLoading shared 7B LLM...")
+
+    llm = LocalLLM7B()
+
+    planner = PlannerAgent(llm)
+
+    developer = DeveloperAgent(llm)
+    tester = TesterAgent(llm)
+    documentation = DocumentationAgent(llm)
+    reviewer = ReviewerAgent(llm)
+
+    # --------------------------------------------------
+    # Generate project plan
+    # --------------------------------------------------
+
+    print("\nGenerating project plan...")
+
+    plan = planner.plan(
+        PROJECT_REQUEST
+    )
+
+    print(
+        json.dumps(
+            plan,
+            indent=2,
+        )
+    )
+
+    project = PlannedProject(
+        plan
+    )
+
+    # --------------------------------------------------
+    # Load trained MARL scheduler
+    # --------------------------------------------------
+
+    print("\nLoading MARL PPO scheduler...")
+
+    scheduler = MARLPPOScheduler(
+        max_resources=RESOURCES,
+    )
+
+    # --------------------------------------------------
+    # Execute plan
+    # --------------------------------------------------
+
+    review_feedback = None
+    pending_repair = None
+
+    for step in range(MAX_STEPS):
+
+        print()
+        print("=" * 72)
+        print(f"STEP {step}")
+        print("=" * 72)
+
+        print(
+            "Project state:",
+            project.summary(),
+        )
+
+        ready = (
+            project.ready_role_counts()
+        )
+
+        print(
+            "Ready roles:",
+            ready,
+        )
+
+        if project.is_complete():
+            print(
+                "\nPROJECT COMPLETE"
+            )
+            break
+
+        obs = project.observation_vector(
+            resources=RESOURCES,
+            max_steps=MAX_STEPS,
+        )
+
+        schedule = scheduler.decide(
+            obs
+        )
+
+        print(
+            "Scheduler actions:",
+            schedule["actions"],
+        )
+
+        print(
+            "Requested:",
+            schedule["requested"],
+        )
+
+        allocated = []
+
+        for role in schedule["allocated"]:
+            if ready.get(role, 0) > 0:
+                allocated.append(role)
+
+        print(
+            "Allocated ready roles:",
+            allocated,
+        )
+
+        # Avoid deadlock if scheduler selects no ready role.
+        if not allocated:
+            for role in [
+                "developer",
+                "tester",
+                "documentation",
+                "reviewer",
+            ]:
+                if ready.get(role, 0) > 0:
+                    allocated.append(role)
+
+                if len(allocated) >= RESOURCES:
+                    break
+
+            print(
+                "Fallback allocation:",
+                allocated,
+            )
+
+        # --------------------------------------------------
+        # Execute selected role tasks
+        # --------------------------------------------------
+
+        for role in allocated:
+
+            task = project.pop_ready_task(
+                role
+            )
+
+            if task is None:
+                continue
+
+            print()
+            print(
+                f"[{role.upper()}]"
+            )
+
+            print(
+                "Task:",
+                task["id"],
+                task["description"],
+            )
+
+            try:
+
+                # ------------------------------------------
+                # Developer
+                # ------------------------------------------
+
+                if role == "developer":
+
+                    # --------------------------------------
+                    # Real pytest repair path.
+                    # --------------------------------------
+
+                    if (
+                        pending_repair is not None
+                        and task["id"]
+                        == pending_repair["developer_task_id"]
+                    ):
+                        print(
+                            "Developer mode: pytest repair"
+                        )
+
+                        files = collect_project_files()
+
+                        current_code = files.get(
+                            "app.py",
+                            "",
+                        )
+
+                        result = developer.fix(
+                            PROJECT_REQUEST,
+                            current_code,
+                            pending_repair[
+                                "test_output"
+                            ],
+                            pending_repair[
+                                "diagnosis"
+                            ],
+                        )
+
+                        repaired_code = extract_text(
+                            result
+                        ).strip()
+
+                        # Remove optional markdown fence.
+                        if repaired_code.startswith("```"):
+                            lines = repaired_code.splitlines()
+
+                            if (
+                                lines
+                                and
+                                lines[0].startswith("```")
+                            ):
+                                lines = lines[1:]
+
+                            if (
+                                lines
+                                and
+                                lines[-1].startswith("```")
+                            ):
+                                lines = lines[:-1]
+
+                            repaired_code = "\n".join(
+                                lines
+                            ).strip()
+
+                        write_project_file(
+                            "app.py",
+                            repaired_code,
+                        )
+
+                        print(
+                            "Repaired app.py after "
+                            f"{pending_repair['tester_task_id']} "
+                            "pytest failure."
+                        )
+
+                        project.resolve_bug()
+
+                        project.mark_completed(
+                            task["id"]
+                        )
+
+                        pending_repair = None
+
+                        continue
+
+                    existing_files = (
+                        collect_project_files()
+                    )
+
+                    if not existing_files:
+
+                        result = developer.implement(
+                            task["description"]
+                        )
+
+                    else:
+
+                        current_code = "\n\n".join(
+                            f"# FILE: {name}\n{content}"
+                            for name, content
+                            in existing_files.items()
+                            if name.endswith(".py")
+                        )
+
+                        diagnosis = {
+                            "problem": (
+                                "The next planner task has not yet been "
+                                "implemented in the current source file."
+                            ),
+                            "location": "app.py",
+                            "cause": (
+                                "The project is being implemented incrementally "
+                                "from a planner-generated dependency graph."
+                            ),
+                            "required_change": (
+                                f"Implement this planner task: "
+                                f"{task['description']}. "
+                                "Preserve all existing working behavior and "
+                                "return the complete updated Python source file."
+                            ),
+                        }
+
+                        result = developer.fix(
+                            PROJECT_REQUEST,
+                            current_code,
+                            (
+                                "No pytest failure is available yet. "
+                                "This is a planner-directed incremental "
+                                "implementation step."
+                            ),
+                            diagnosis,
+                        )
+
+                    write_project_file(
+                        "app.py",
+                        result,
+                    )
+
+                    project.mark_completed(
+                        task["id"]
+                    )
+
+                # ------------------------------------------
+                # Tester
+                # ------------------------------------------
+
+                elif role == "tester":
+
+                    files = collect_project_files()
+
+                    current_code = files.get(
+                        "app.py",
+                        "",
+                    )
+
+                    current_tests = files.get(
+                        "test_app.py",
+                        "",
+                    )
+
+                    test_prompt = f"""
+You are the testing engineer for a Python software project.
+
+PROJECT REQUIREMENTS:
+{PROJECT_REQUEST}
+
+CURRENT TEST TASK:
+{task["description"]}
+
+ACTUAL CURRENT app.py:
+{current_code}
+
+EXISTING test_app.py:
+{current_tests}
+
+Create the complete test_app.py file.
+
+Requirements:
+- Use pytest.
+- Test only behavior required by the project requirements
+  and the current test task.
+- Base every class, method, function, and parameter on the
+  actual app.py source.
+- Do not invent APIs.
+- Preserve useful existing tests.
+- Add tests needed for the current task.
+- Tests must import from app.py.
+- Return only valid Python source for the complete test_app.py.
+"""
+
+                    result = llm.generate(
+                        system_prompt=(
+                            "You are a precise Python testing "
+                            "engineer. Generate executable pytest "
+                            "tests that match the supplied source "
+                            "code and requirements exactly."
+                        ),
+                        user_prompt=test_prompt,
+                        max_new_tokens=1400,
+                    )
+
+                    test_code = clean_generated_python(
+                        result
+                    )
+
+                    try:
+                        ast.parse(
+                            test_code,
+                            filename="test_app.py",
+                        )
+
+                    except SyntaxError as exc:
+                        print(
+                            "Tester generated invalid Python:",
+                            exc,
+                        )
+
+                        # This is a Tester artifact failure,
+                        # not an implementation failure.
+                        task["status"] = "ready"
+
+                        print(
+                            "Reopened Tester task:",
+                            task["id"],
+                        )
+
+                        continue
+
+                    write_project_file(
+                        "test_app.py",
+                        test_code,
+                    )
+
+                    print(
+                        "Tester mode: generated real pytest tests"
+                    )
+
+                    pytest_result = subprocess.run(
+                        [
+                            "python",
+                            "-m",
+                            "pytest",
+                            "-q",
+                        ],
+                        cwd=WORKSPACE,
+                        capture_output=True,
+                        text=True,
+                        timeout=60,
+                    )
+
+                    test_output = (
+                        pytest_result.stdout
+                        + "\n"
+                        + pytest_result.stderr
+                    ).strip()
+
+                    print()
+                    print("pytest:")
+                    print(test_output)
+
+                    if pytest_result.returncode == 0:
+
+                        print(
+                            "Tester task passed real pytest."
+                        )
+
+                        project.mark_completed(
+                            task["id"]
+                        )
+
+                    else:
+
+                        # A broken generated test file belongs
+                        # to Tester, not Developer.
+                        test_file_failure = (
+                            "SyntaxError" in test_output
+                            or
+                            "ERROR collecting test_app.py"
+                            in test_output
+                        )
+
+                        if test_file_failure:
+                            print(
+                                "Generated test artifact failed "
+                                "collection; reopening Tester."
+                            )
+
+                            task["status"] = "ready"
+
+                            continue
+
+                        print(
+                            "Tests failed; requesting "
+                            "Tester diagnosis."
+                        )
+
+                        diagnosis_result = tester.diagnose(
+                            task=(
+                                PROJECT_REQUEST
+                                + "\n\nCURRENT TEST TASK: "
+                                + task["description"]
+                            ),
+                            current_code=current_code,
+                            test_output=test_output,
+                        )
+
+                        diagnosis = (
+                            diagnosis_result.get(
+                                "diagnosis",
+                                {},
+                            )
+                            if isinstance(
+                                diagnosis_result,
+                                dict,
+                            )
+                            else {}
+                        )
+
+                        print(
+                            "Tester diagnosis:",
+                            diagnosis,
+                        )
+
+                        # Do not complete the tester task.
+                        # It must wait for Developer repair.
+                        task["status"] = "pending"
+
+                        repair_task = None
+
+                        # Prefer one of this test task's direct
+                        # Developer dependencies.
+                        task_collection = (
+                            project.tasks.values()
+                            if isinstance(
+                                project.tasks,
+                                dict,
+                            )
+                            else project.tasks
+                        )
+
+                        for dep_id in task.get(
+                            "depends_on",
+                            [],
+                        ):
+                            for candidate in task_collection:
+                                if (
+                                    candidate["id"] == dep_id
+                                    and
+                                    candidate["role"]
+                                    == "developer"
+                                ):
+                                    repair_task = candidate
+                                    break
+
+                            if repair_task is not None:
+                                break
+
+                        # Fallback: most recent completed
+                        # Developer task.
+                        if repair_task is None:
+                            candidates = list(
+                                project.tasks.values()
+                                if isinstance(
+                                    project.tasks,
+                                    dict,
+                                )
+                                else project.tasks
+                            )
+
+                            for candidate in reversed(
+                                candidates
+                            ):
+                                if (
+                                    candidate["role"]
+                                    == "developer"
+                                    and
+                                    candidate["status"]
+                                    == "completed"
+                                ):
+                                    repair_task = candidate
+                                    break
+
+                        if repair_task is None:
+                            raise RuntimeError(
+                                "pytest failed but no "
+                                "Developer repair task "
+                                "could be found."
+                            )
+
+                        repair_task["status"] = "ready"
+
+                        project.add_bug()
+
+                        pending_repair = {
+                            "tester_task_id": task["id"],
+                            "developer_task_id": (
+                                repair_task["id"]
+                            ),
+                            "diagnosis": diagnosis,
+                            "test_output": test_output,
+                        }
+
+                        print(
+                            "Reopened Developer task:",
+                            repair_task["id"],
+                            repair_task["description"],
+                        )
+
+                # ------------------------------------------
+                # Documentation
+                # ------------------------------------------
+
+                elif role == "documentation":
+
+                    files = collect_project_files()
+
+                    if project.review_rejected and review_feedback:
+                        current_code = files.get(
+                            "app.py",
+                            "",
+                        )
+
+                        current_readme = files.get(
+                            "README.md",
+                            "",
+                        )
+
+                        repair_prompt = f"""
+You are repairing README.md after a code review rejection.
+
+PROJECT REQUIREMENTS:
+{PROJECT_REQUEST}
+
+ACTUAL CURRENT PYTHON SOURCE:
+
+{current_code}
+
+CURRENT README:
+
+{current_readme}
+
+REVIEWER ISSUES:
+{review_feedback.get("issues", [])}
+
+REVIEWER REASON:
+{review_feedback.get("reason", "")}
+
+Rewrite README.md so it is strictly consistent with the Python source above.
+
+Rules:
+- Use ONLY classes, methods, functions, and parameters that actually
+  exist in the supplied Python source.
+- Do not invent REST endpoints.
+- Do not invent method names.
+- Do not invent return values.
+- Every usage example must be valid for the supplied source code.
+- Resolve every reviewer issue explicitly.
+- Preserve useful setup and usage information.
+- Return ONLY the complete corrected README.md.
+"""
+
+                        result = llm.generate(
+                            system_prompt=(
+                                "You are a precise software documentation "
+                                "engineer. Documentation must match the "
+                                "provided source code exactly."
+                            ),
+                            user_prompt=repair_prompt,
+                            max_new_tokens=1400,
+                        )
+
+                        docs = extract_text(result)
+
+                        print(
+                            "Documentation mode: "
+                            "targeted reviewer repair"
+                        )
+
+                    else:
+                        docs = documentation.create(
+                            task["description"],
+                            files,
+                        )
+
+                        print(
+                            "Documentation mode: "
+                            "normal planner task"
+                        )
+
+                    write_project_file(
+                        "README.md",
+                        docs,
+                    )
+
+                    project.mark_completed(
+                        task["id"]
+                    )
+
+                # ------------------------------------------
+                # Reviewer
+                # ------------------------------------------
+
+                elif role == "reviewer":
+
+
+                    files = (
+                        collect_project_files()
+                    )
+
+                    result = reviewer.review(
+                        task["description"],
+                        files,
+                        "Planner-directed execution",
+                    )
+
+                    print(
+                        "Review:",
+                        result,
+                    )
+
+                    review = (
+                        result.get("review", result)
+                        if isinstance(result, dict)
+                        else {}
+                    )
+
+                    if review.get(
+                        "approved",
+                        False,
+                    ):
+                        project.mark_completed(
+                            task["id"]
+                        )
+
+                    else:
+                        project.review_rejected = True
+                        review_feedback = review
+
+                        send_back_to = review.get(
+                            "send_back_to"
+                        )
+
+                        print(
+                            "Reviewer send-back:",
+                            send_back_to,
+                        )
+
+                        # Reopen one completed task for the
+                        # requested role so the issue can
+                        # actually be repaired.
+                        if send_back_to:
+                            candidates = [
+                                t
+                                for t in project.tasks.values()
+                                if (
+                                    t["role"] == send_back_to
+                                    and t["status"] == "completed"
+                                )
+                            ]
+
+                            if candidates:
+                                repair_task = candidates[-1]
+                                repair_task["status"] = "ready"
+
+                                print(
+                                    "Reopened task:",
+                                    repair_task["id"],
+                                    repair_task["description"],
+                                )
+
+                        # Keep reviewer blocked until repair
+                        # work completes again.
+                        task["status"] = "pending"
+
+            except Exception as exc:
+
+                print(
+                    f"Task execution error: {exc}"
+                )
+
+                # Integration/runtime failures should not be
+                # counted as project software bugs.
+                task["status"] = "ready"
+
+        project.advance_step()
+
+    else:
+        print(
+            "\nMAX STEPS REACHED"
+        )
+
+    print()
+    print("=" * 72)
+    print("FINAL STATE")
+    print("=" * 72)
+
+    print(
+        project.summary()
+    )
+
+    print(
+        "\nWorkspace:",
+        WORKSPACE.resolve(),
+    )
+
+    scheduler.close()
+
+
+if __name__ == "__main__":
+    main()

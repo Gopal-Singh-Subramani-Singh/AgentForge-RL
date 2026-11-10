@@ -1,0 +1,2340 @@
+Loading Qwen/Qwen2.5-Coder-7B-Instruct in 4-bit on cuda:0
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:18<00:56, 18.81s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:36<00:35, 17.92s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:43<00:13, 13.28s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:44<00:00,  8.18s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:44<00:00, 11.06s/it]
+Model loaded successfully.
+Allocated: 5.18 GB
+Reserved: 6.52 GB
+Free: 2.86 GB
+Total: 9.50 GB
+Loading MARL PPO scheduler:
+/home/jovyan/marl-dev-team/results/checkpoints/marl_ppo_alpha_0_25
+2026-10-31 23:32:44,771	WARNING algorithm_config.py:5159 -- You are running PPO on the new API stack! This is the new default behavior for this algorithm. If you don't want to use the new API stack, set `config.api_stack(enable_rl_module_and_learner=False,enable_env_runner_and_connector_v2=False)`. For a detailed migration guide, see here: https://docs.ray.io/en/master/rllib/new-api-stack-migration-guide.html
+2026-10-31 23:32:47,268	WARNING services.py:2248 -- WARNING: The object store is using /tmp/ray instead of /dev/shm because /dev/shm has only 67096576 bytes available. This will harm performance! You may be able to free up space by deleting files in /dev/shm. If you are inside a Docker container, you can increase /dev/shm size by passing '--shm-size=4.76gb' to 'docker run' (or add it to the run_options list in a Ray cluster config). Make sure to set this to more than 30% of available RAM.
+2026-10-31 23:32:50,463	INFO worker.py:2024 -- Started a local Ray instance.
+2026-10-31 23:33:04,580	WARNING rl_module.py:463 -- DeprecationWarning: `RLModule(config=[RLModuleConfig object])` has been deprecated. Use `RLModule(observation_space=.., action_space=.., inference_only=.., model_config=.., catalog_class=..)` instead. This will raise an error in the future!
+2026-10-31 23:33:04,762	INFO trainable.py:154 -- Trainable.setup took 19.988 seconds. If your trainable is slow to initialize, consider setting reuse_actors=True to reduce actor creation overheads.
+2026-10-31 23:33:04,762	WARNING util.py:62 -- Install gputil for GPU system monitoring.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+{
+  "project": "Expense Tracker",
+  "tasks": [
+    {
+      "id": "T1",
+      "role": "developer",
+      "description": "Design the application architecture",
+      "depends_on": []
+    },
+    {
+      "id": "T2",
+      "role": "developer",
+      "description": "Implement core data model (Expense class)",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T3",
+      "role": "developer",
+      "description": "Develop user interface functions (add expense, list expenses)",
+      "depends_on": [
+        "T2"
+      ]
+    },
+    {
+      "id": "T4",
+      "role": "developer",
+      "description": "Implement functionality to calculate total spending",
+      "depends_on": [
+        "T2"
+      ]
+    },
+    {
+      "id": "T5",
+      "role": "developer",
+      "description": "Create JSON file handling functions (save, load)",
+      "depends_on": [
+        "T2"
+      ]
+    },
+    {
+      "id": "T6",
+      "role": "tester",
+      "description": "Write unit tests for Expense class",
+      "depends_on": [
+        "T2"
+      ]
+    },
+    {
+      "id": "T7",
+      "role": "tester",
+      "description": "Test user interface functions",
+      "depends_on": [
+        "T3"
+      ]
+    },
+    {
+      "id": "T8",
+      "role": "tester",
+      "description": "Validate total spending calculation",
+      "depends_on": [
+        "T4"
+      ]
+    },
+    {
+      "id": "T9",
+      "role": "tester",
+      "description": "Check JSON file handling",
+      "depends_on": [
+        "T5"
+      ]
+    },
+    {
+      "id": "T10",
+      "role": "documentation",
+      "description": "Write README with usage examples",
+      "depends_on": [
+        "T3",
+        "T4",
+        "T5"
+      ]
+    },
+    {
+      "id": "T11",
+      "role": "reviewer",
+      "description": "Final code review",
+      "depends_on": [
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9"
+      ]
+    }
+  ]
+}
+
+========================================================================
+STEP 0
+========================================================================
+{'project': 'Expense Tracker', 'step': 0, 'completed': 0, 'total': 11, 'ready': {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 0, 'complete': False}
+
+[DEVELOPER]
+T1 Design the application architecture
+
+========================================================================
+STEP 1
+========================================================================
+{'project': 'Expense Tracker', 'step': 1, 'completed': 1, 'total': 11, 'ready': {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 0, 'complete': False}
+
+[DEVELOPER]
+T2 Implement core data model (Expense class)
+
+========================================================================
+STEP 2
+========================================================================
+{'project': 'Expense Tracker', 'step': 2, 'completed': 2, 'total': 11, 'ready': {'developer': 3, 'tester': 1, 'documentation': 0, 'reviewer': 0}, 'bugs': 0, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T6 Write unit tests for Expense class
+[TEST SANITIZED] test_expense_str_representation - unsupported exact string/repr behavior
+.                                                                                                                                                                           [100%]
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+1 passed, 1 warning in 0.01s
+
+========================================================================
+STEP 3
+========================================================================
+{'project': 'Expense Tracker', 'step': 3, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 1, 'documentation': 0, 'reviewer': 0}, 'bugs': 0, 'complete': False}
+
+[DEVELOPER]
+T4 Implement functionality to calculate total spending
+
+[TESTER]
+T7 Test user interface functions
+[TEST SANITIZED] test_save_and_load_data - unsupported exact string/repr behavior
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_______________________________________________________________________________ test_list_expenses ________________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7905725bf610>
+
+    def test_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7905725bf610>.readouterr
+
+tests/test_t7.py:23: AssertionError
+__________________________________________________________________________ test_calculate_total_spending __________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7905725bfed0>
+
+    def test_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7905725bfed0>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 4
+========================================================================
+{'project': 'Expense Tracker', 'step': 4, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 1, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x767d04d23610>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x767d04d23610>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x767d04d23ed0>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x767d04d23ed0>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 5
+========================================================================
+{'project': 'Expense Tracker', 'step': 5, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 2, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7cbf15246fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7cbf15246fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7cbf15247890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7cbf15247890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 6
+========================================================================
+{'project': 'Expense Tracker', 'step': 6, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 3, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x78cdb4122fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x78cdb4122fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x78cdb4123890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x78cdb4123890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 7
+========================================================================
+{'project': 'Expense Tracker', 'step': 7, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 4, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x76254e876fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x76254e876fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x76254e877890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x76254e877890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 8
+========================================================================
+{'project': 'Expense Tracker', 'step': 8, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 5, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x745d579befd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x745d579befd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x745d579bf890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x745d579bf890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 9
+========================================================================
+{'project': 'Expense Tracker', 'step': 9, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 6, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x782e6fd46fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x782e6fd46fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x782e6fd47890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x782e6fd47890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 10
+========================================================================
+{'project': 'Expense Tracker', 'step': 10, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 7, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x777f9101efd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x777f9101efd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x777f9101f890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x777f9101f890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 11
+========================================================================
+{'project': 'Expense Tracker', 'step': 11, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 8, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x73159d546fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x73159d546fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x73159d547890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x73159d547890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 12
+========================================================================
+{'project': 'Expense Tracker', 'step': 12, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 9, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x79a74b236fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x79a74b236fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x79a74b237890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x79a74b237890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 13
+========================================================================
+{'project': 'Expense Tracker', 'step': 13, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 10, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7d5407372fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7d5407372fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7d5407373890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7d5407373890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 14
+========================================================================
+{'project': 'Expense Tracker', 'step': 14, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 11, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7e023565efd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7e023565efd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7e023565f890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7e023565f890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 15
+========================================================================
+{'project': 'Expense Tracker', 'step': 15, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 12, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x731f56862fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x731f56862fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x731f56863890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x731f56863890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 16
+========================================================================
+{'project': 'Expense Tracker', 'step': 16, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 13, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7e3305e26fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7e3305e26fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7e3305e27890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7e3305e27890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 17
+========================================================================
+{'project': 'Expense Tracker', 'step': 17, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 14, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7bf84e4f6fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7bf84e4f6fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7bf84e4f7890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7bf84e4f7890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 18
+========================================================================
+{'project': 'Expense Tracker', 'step': 18, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 15, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7299a1772fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7299a1772fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7299a1773890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7299a1773890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 19
+========================================================================
+{'project': 'Expense Tracker', 'step': 19, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 16, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7449b9ba2fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7449b9ba2fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7449b9ba3890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7449b9ba3890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 20
+========================================================================
+{'project': 'Expense Tracker', 'step': 20, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 17, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7f2bff482fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7f2bff482fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7f2bff483890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7f2bff483890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 21
+========================================================================
+{'project': 'Expense Tracker', 'step': 21, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 18, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x76a290ddafd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x76a290ddafd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x76a290ddb890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x76a290ddb890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 22
+========================================================================
+{'project': 'Expense Tracker', 'step': 22, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 19, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7c8733d0efd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7c8733d0efd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7c8733d0f890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7c8733d0f890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 23
+========================================================================
+{'project': 'Expense Tracker', 'step': 23, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 20, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x77ac28412fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x77ac28412fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x77ac28413890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x77ac28413890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 24
+========================================================================
+{'project': 'Expense Tracker', 'step': 24, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 21, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7b4b66a96fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7b4b66a96fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7b4b66a97890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7b4b66a97890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 25
+========================================================================
+{'project': 'Expense Tracker', 'step': 25, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 22, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x79b47b34afd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x79b47b34afd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x79b47b34b890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x79b47b34b890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 26
+========================================================================
+{'project': 'Expense Tracker', 'step': 26, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 23, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7f5e0d056fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7f5e0d056fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7f5e0d057890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7f5e0d057890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 27
+========================================================================
+{'project': 'Expense Tracker', 'step': 27, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 24, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7d15ca166fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7d15ca166fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7d15ca167890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7d15ca167890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 28
+========================================================================
+{'project': 'Expense Tracker', 'step': 28, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 25, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x76c67ee2afd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x76c67ee2afd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x76c67ee2b890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x76c67ee2b890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 29
+========================================================================
+{'project': 'Expense Tracker', 'step': 29, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 26, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7879ca97efd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7879ca97efd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7879ca97f890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7879ca97f890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 30
+========================================================================
+{'project': 'Expense Tracker', 'step': 30, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 27, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x79daca26efd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x79daca26efd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x79daca26f890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x79daca26f890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 31
+========================================================================
+{'project': 'Expense Tracker', 'step': 31, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 28, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x765bb884efd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x765bb884efd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x765bb884f890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x765bb884f890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 32
+========================================================================
+{'project': 'Expense Tracker', 'step': 32, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 29, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7a866c5eefd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7a866c5eefd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7a866c5ef890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7a866c5ef890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 33
+========================================================================
+{'project': 'Expense Tracker', 'step': 33, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 30, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7d7123296fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7d7123296fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7d7123297890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7d7123297890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 34
+========================================================================
+{'project': 'Expense Tracker', 'step': 34, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 31, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x704dd27dafd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x704dd27dafd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x704dd27db890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x704dd27db890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 35
+========================================================================
+{'project': 'Expense Tracker', 'step': 35, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 32, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x79a38c37afd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x79a38c37afd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x79a38c37b890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x79a38c37b890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 36
+========================================================================
+{'project': 'Expense Tracker', 'step': 36, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 33, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x740ed40d2fd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x740ed40d2fd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x740ed40d3890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x740ed40d3890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 37
+========================================================================
+{'project': 'Expense Tracker', 'step': 37, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 34, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x777fcd2aafd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x777fcd2aafd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x777fcd2ab890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x777fcd2ab890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 38
+========================================================================
+{'project': 'Expense Tracker', 'step': 38, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 35, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7c9c6f51efd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7c9c6f51efd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7c9c6f51f890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7c9c6f51f890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+
+========================================================================
+STEP 39
+========================================================================
+{'project': 'Expense Tracker', 'step': 39, 'completed': 4, 'total': 11, 'ready': {'developer': 2, 'tester': 2, 'documentation': 0, 'reviewer': 0}, 'bugs': 36, 'complete': False}
+
+[DEVELOPER]
+T3 Develop user interface functions (add expense, list expenses)
+
+[TESTER]
+T7 Test user interface functions
+..FF                                                                                                                                                                        [100%]
+==================================================================================== FAILURES =====================================================================================
+_____________________________________________________________________________ test_cli_list_expenses ______________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7ea4c0d5afd0>
+
+    def test_cli_list_expenses(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'list']
+        main()
+>       assert '100.5 - Groceries - Weekly grocery shopping' in capsys.readouterr().out
+E       AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+E        +  where '' = CaptureResult(out='', err='').out
+E        +    where CaptureResult(out='', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7ea4c0d5afd0>.readouterr
+
+tests/test_t7.py:23: AssertionError
+________________________________________________________________________ test_cli_calculate_total_spending ________________________________________________________________________
+
+capsys = <_pytest.capture.CaptureFixture object at 0x7ea4c0d5b890>
+
+    def test_cli_calculate_total_spending(capsys):
+        sys.argv = ['cli.py', 'add', '100.5', 'Groceries', 'Weekly grocery shopping']
+        main()
+        sys.argv = ['cli.py', 'total']
+        main()
+>       assert 'Total Spending: 100.5' in capsys.readouterr().out
+E       AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+E        +  where 'Total Spending: 0\n' = CaptureResult(out='Total Spending: 0\n', err='').out
+E        +    where CaptureResult(out='Total Spending: 0\n', err='') = readouterr()
+E        +      where readouterr = <_pytest.capture.CaptureFixture object at 0x7ea4c0d5b890>.readouterr
+
+tests/test_t7.py:30: AssertionError
+================================================================================ warnings summary =================================================================================
+../../../../../opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14
+  /opt/conda/lib/python3.13/site-packages/anyio/pytest_plugin.py:14: PytestRemovedIn10Warning: _pytest.python.CallSpec2 has been renamed to CallSpec.
+  The CallSpec2 alias will be removed in pytest 10.
+  Update imports to use CallSpec instead.
+  See https://docs.pytest.org/en/stable/deprecations.html#callspec2-renamed
+    from _pytest.python import CallSpec2
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+============================================================================= short test summary info =============================================================================
+FAILED tests/test_t7.py::test_cli_list_expenses - AssertionError: assert '100.5 - Groceries - Weekly grocery shopping' in ''
+FAILED tests/test_t7.py::test_cli_calculate_total_spending - AssertionError: assert 'Total Spending: 100.5' in 'Total Spending: 0\n'
+2 failed, 2 passed, 1 warning in 0.03s
+Reopened Developer: T3
+MAX STEPS REACHED

@@ -1,0 +1,581 @@
+========================================================================
+PLANNER + MARL + REAL 7B TEAM
+========================================================================
+
+Loading shared 7B LLM...
+Loading Qwen/Qwen2.5-Coder-7B-Instruct in 4-bit on cuda:0
+Model loaded successfully.
+Allocated: 5.18 GB
+Reserved: 5.33 GB
+Free: 4.04 GB
+Total: 9.50 GB
+
+Generating project plan...
+{
+  "project": "Todo Management Module",
+  "tasks": [
+    {
+      "id": "T1",
+      "role": "developer",
+      "description": "Design the API for the Todo management module.",
+      "depends_on": []
+    },
+    {
+      "id": "T2",
+      "role": "developer",
+      "description": "Implement creating todos with unique IDs.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T3",
+      "role": "developer",
+      "description": "Implement retrieving a todo by ID.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T4",
+      "role": "developer",
+      "description": "Implement listing all todos.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T5",
+      "role": "developer",
+      "description": "Implement marking todos complete.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T6",
+      "role": "developer",
+      "description": "Implement deleting todos.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T7",
+      "role": "developer",
+      "description": "Handle missing IDs gracefully.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T8",
+      "role": "tester",
+      "description": "Write unit tests for creating todos.",
+      "depends_on": [
+        "T2"
+      ]
+    },
+    {
+      "id": "T9",
+      "role": "tester",
+      "description": "Write unit tests for retrieving a todo by ID.",
+      "depends_on": [
+        "T3"
+      ]
+    },
+    {
+      "id": "T10",
+      "role": "tester",
+      "description": "Write unit tests for listing all todos.",
+      "depends_on": [
+        "T4"
+      ]
+    },
+    {
+      "id": "T11",
+      "role": "tester",
+      "description": "Write unit tests for marking todos complete.",
+      "depends_on": [
+        "T5"
+      ]
+    },
+    {
+      "id": "T12",
+      "role": "tester",
+      "description": "Write unit tests for deleting todos.",
+      "depends_on": [
+        "T6"
+      ]
+    },
+    {
+      "id": "T13",
+      "role": "tester",
+      "description": "Write integration tests for the Todo management module.",
+      "depends_on": [
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6"
+      ]
+    },
+    {
+      "id": "T14",
+      "role": "documentation",
+      "description": "Document the setup instructions for the Todo management module.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T15",
+      "role": "documentation",
+      "description": "Document the usage of the Todo management module.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T16",
+      "role": "documentation",
+      "description": "Document the API endpoints and their functionalities.",
+      "depends_on": [
+        "T1"
+      ]
+    },
+    {
+      "id": "T17",
+      "role": "reviewer",
+      "description": "Review the entire implementation, tests, and documentation.",
+      "depends_on": [
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9",
+        "T10",
+        "T11",
+        "T12",
+        "T13",
+        "T14",
+        "T15",
+        "T16"
+      ]
+    }
+  ]
+}
+
+Loading MARL PPO scheduler...
+Loading MARL PPO scheduler:
+/home/jovyan/marl-dev-team/results/checkpoints/marl_ppo_alpha_0_25
+
+========================================================================
+STEP 0
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 0, 'completed': 0, 'total': 17, 'ready': {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 0, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 1, 'reviewer': 0}
+Requested: ['developer', 'documentation']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T1 Design the API for the Todo management module.
+
+========================================================================
+STEP 1
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 1, 'completed': 1, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 3, 'reviewer': 0}, 'bugs': 0, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 3, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 1, 'reviewer': 0}
+Requested: ['developer', 'documentation']
+Allocated ready roles: ['developer', 'documentation']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+[DOCUMENTATION]
+Task: T14 Document the setup instructions for the Todo management module.
+
+========================================================================
+STEP 2
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 2, 'completed': 2, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 2, 'reviewer': 0}, 'bugs': 1, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 2, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 1, 'reviewer': 0}
+Requested: ['developer', 'documentation']
+Allocated ready roles: ['developer', 'documentation']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+[DOCUMENTATION]
+Task: T15 Document the usage of the Todo management module.
+
+========================================================================
+STEP 3
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 3, 'completed': 3, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 1, 'reviewer': 0}, 'bugs': 2, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 1, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 1, 'reviewer': 0}
+Requested: ['developer', 'documentation']
+Allocated ready roles: ['developer', 'documentation']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+[DOCUMENTATION]
+Task: T16 Document the API endpoints and their functionalities.
+
+========================================================================
+STEP 4
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 4, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 3, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 5
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 5, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 4, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 6
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 6, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 5, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 7
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 7, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 6, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 8
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 8, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 7, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 9
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 9, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 8, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 10
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 10, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 9, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 11
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 11, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 10, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 12
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 12, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 11, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 13
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 13, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 12, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 14
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 14, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 13, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 15
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 15, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 14, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 16
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 16, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 15, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 17
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 17, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 16, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 18
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 18, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 17, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 19
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 19, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 18, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 1, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer', 'tester']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 20
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 20, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 19, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 21
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 21, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 20, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 22
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 22, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 21, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 23
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 23, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 22, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 24
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 24, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 23, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 25
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 25, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 24, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 26
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 26, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 25, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 27
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 27, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 26, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 28
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 28, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 27, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+========================================================================
+STEP 29
+========================================================================
+Project state: {'project': 'Todo Management Module', 'step': 29, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 28, 'review_rejected': False, 'complete': False}
+Ready roles: {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Scheduler actions: {'developer': 1, 'tester': 0, 'documentation': 0, 'reviewer': 0}
+Requested: ['developer']
+Allocated ready roles: ['developer']
+
+[DEVELOPER]
+Task: T2 Implement creating todos with unique IDs.
+Task failed: string indices must be integers, not 'str'
+
+MAX STEPS REACHED
+
+========================================================================
+FINAL STATE
+========================================================================
+{'project': 'Todo Management Module', 'step': 30, 'completed': 4, 'total': 17, 'ready': {'developer': 6, 'tester': 0, 'documentation': 0, 'reviewer': 0}, 'bugs': 29, 'review_rejected': False, 'complete': False}
+
+Workspace: /home/jovyan/marl-dev-team/workspaces/planner_rl_demo

@@ -24,6 +24,7 @@ Implement this task:
 Return only the complete Python source file.
 """,
             max_new_tokens=1024,
+            do_sample=False,
         )
 
     def fix(
@@ -67,7 +68,12 @@ Modify the implementation according to the Tester's required change.
 IMPORTANT:
 
 - The current implementation is known to be incorrect.
-- You MUST make the requested change.
+- Make the requested change only when it is consistent with the
+  ORIGINAL REQUIREMENTS and PYTEST FAILURE.
+- ORIGINAL REQUIREMENTS take precedence over the Tester diagnosis.
+- Do not invent classes, functions, APIs, or architecture that are
+  not required by the original task.
+- Preserve the exact public interface required by the original task.
 - Do not return the unchanged implementation.
 - Preserve behavior that is already correct.
 - Return ONLY the complete corrected Python source file.

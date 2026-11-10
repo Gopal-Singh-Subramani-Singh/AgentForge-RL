@@ -1,0 +1,2096 @@
+Loading MARL PPO scheduler...
+Loading MARL PPO scheduler:
+/home/jovyan/marl-dev-team/results/checkpoints/marl_ppo_alpha_0_25
+Loading shared 7B LLM...
+Loading Qwen/Qwen2.5-Coder-7B-Instruct in 4-bit on cuda:0
+Model loaded successfully.
+Allocated: 5.18 GB
+Reserved: 5.33 GB
+Free: 4.04 GB
+Total: 9.50 GB
+
+========================================================================
+RL-SCHEDULED REAL 7B LLM TEAM
+========================================================================
+
+========================================================================
+STEP 0
+State: {'step': 0, 'dev_tasks': 5, 'untested_work': 0, 'bugs': 0, 'docs_progress': 0.0, 'docs_complete': False, 'review_rejected': False, 'review_complete': False}
+Requested: ['developer', 'documentation']
+Allocated: ['developer', 'documentation']
+
+[Developer] executing
+Mode: implementation
+Created app.py
+
+[Documentation] executing
+Created README.md
+
+========================================================================
+STEP 1
+State: {'step': 1, 'dev_tasks': 0, 'untested_work': 1, 'bugs': 0, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': False, 'review_complete': False}
+Requested: ['tester', 'reviewer']
+Allocated: ['tester', 'reviewer']
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.05s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+[Reviewer] executing
+
+Review:
+{
+  "approved": false,
+  "score": 0.7,
+  "issues": [
+    "The 'app' module does not contain an 'todos' attribute, which is referenced in the test setup function."
+  ],
+  "send_back_to": "developer",
+  "reason": "The project fails to meet the requirement of maintaining an in-memory collection of todo items."
+}
+
+========================================================================
+STEP 2
+State: {'step': 2, 'dev_tasks': 0, 'untested_work': 1, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 3
+State: {'step': 3, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 4
+State: {'step': 4, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 5
+State: {'step': 5, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 6
+State: {'step': 6, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 7
+State: {'step': 7, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 8
+State: {'step': 8, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 9
+State: {'step': 9, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 10
+State: {'step': 10, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 11
+State: {'step': 11, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 12
+State: {'step': 12, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 13
+State: {'step': 13, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 14
+State: {'step': 14, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 15
+State: {'step': 15, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 16
+State: {'step': 16, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 17
+State: {'step': 17, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 18
+State: {'step': 18, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+STEP 19
+State: {'step': 19, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+Requested: ['developer', 'tester', 'reviewer']
+Allocated: ['developer', 'tester']
+
+[Developer] executing
+Mode: repair
+Updated app.py
+
+[Tester] executing
+
+pytest:
+EEEEEEEEE                                                                                                                                              [100%]
+=========================================================================== ERRORS ===========================================================================
+_____________________________________________________________ ERROR at setup of test_create_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_unique_ids ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+______________________________________________________________ ERROR at setup of test_get_todo _______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_missing_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_list_todos ______________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+____________________________________________________________ ERROR at setup of test_complete_todo ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+__________________________________________________________ ERROR at setup of test_complete_missing ___________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+_____________________________________________________________ ERROR at setup of test_delete_todo _____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+___________________________________________________________ ERROR at setup of test_delete_missing ____________________________________________________________
+
+    def setup_function():
+>       app.todos.clear()
+        ^^^^^^^^^
+E       AttributeError: module 'app' has no attribute 'todos'
+
+test_app.py:6: AttributeError
+================================================================== short test summary info ===================================================================
+ERROR test_app.py::test_create_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_unique_ids - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_get_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_missing_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_list_todos - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_complete_missing - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_todo - AttributeError: module 'app' has no attribute 'todos'
+ERROR test_app.py::test_delete_missing - AttributeError: module 'app' has no attribute 'todos'
+9 errors in 0.04s
+Tests failed; requesting Tester diagnosis.
+
+Diagnosis:
+{
+  "problem": "The `app` module does not have an attribute named `todos`, which is causing errors in the tests.",
+  "location": "setup_function in test_app.py",
+  "cause": "The `app` module is being referenced directly in the test setup function, but it does not contain the `todos` attribute.",
+  "required_change": "Ensure that the `app` module contains the `TodoService` class and that the `todos` attribute is accessible within the tests."
+}
+
+========================================================================
+MAX STEPS REACHED
+========================================================================
+
+Final state: {'step': 20, 'dev_tasks': 0, 'untested_work': 0, 'bugs': 1, 'docs_progress': 1.0, 'docs_complete': True, 'review_rejected': True, 'review_complete': False}
+
+Workspace: /home/jovyan/marl-dev-team/workspaces/rl_todo_demo

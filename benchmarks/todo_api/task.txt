@@ -1,0 +1,49 @@
+Build a Python REST API for managing Todo items.
+
+Use FastAPI.
+
+The application must contain:
+
+1. POST /todos
+   - Creates a todo.
+   - Request body contains:
+       title: string
+   - title cannot be empty.
+   - Returns the created todo.
+
+2. GET /todos
+   - Returns all todos.
+
+3. GET /todos/{id}
+   - Returns one todo.
+   - Return HTTP 404 if it does not exist.
+
+4. PUT /todos/{id}
+   - Can update:
+       title
+       completed
+   - Return HTTP 404 if the todo does not exist.
+
+5. DELETE /todos/{id}
+   - Deletes a todo.
+   - Return HTTP 404 if it does not exist.
+
+Each Todo contains:
+
+id: integer
+title: string
+completed: boolean
+
+New todos must default to:
+completed = false
+
+IDs must be unique.
+
+The application must expose the FastAPI instance as:
+
+app
+
+The project should contain:
+
+app.py
+models.py
