@@ -1,0 +1,45 @@
+
+==============================================================================
+TRAINING GRPO-STYLE MARL
+==============================================================================
+Resources: 2
+Reward alpha: 0.25
+Group size: 8
+Group score: role-aware hybrid return
+Credit assignment: 0.25 individual + 0.75 team
+==============================================================================
+Iteration   1 | Success 1.000 | Steps  22.42 | Reward   -0.11 | Waste 11.72 | Reject  7.53 | Loss   0.1813
+Iteration   2 | Success 1.000 | Steps  22.92 | Reward    9.18 | Waste 12.78 | Reject  5.95 | Loss   0.1747
+Iteration   3 | Success 1.000 | Steps  21.69 | Reward   16.28 | Waste 13.91 | Reject  4.20 | Loss   0.1715
+Iteration   4 | Success 1.000 | Steps  20.49 | Reward   23.30 | Waste 13.89 | Reject  2.83 | Loss   0.1914
+Iteration   5 | Success 1.000 | Steps  23.16 | Reward   26.01 | Waste 18.26 | Reject  2.16 | Loss   0.2060
+Iteration   6 | Success 0.969 | Steps  24.26 | Reward   23.37 | Waste 22.40 | Reject  1.79 | Loss   0.2760
+Iteration   7 | Success 0.977 | Steps  23.26 | Reward   26.70 | Waste 20.98 | Reject  1.55 | Loss   0.1965
+Iteration   8 | Success 1.000 | Steps  20.81 | Reward   29.80 | Waste 16.99 | Reject  1.48 | Loss   0.2240
+Iteration   9 | Success 0.984 | Steps  20.93 | Reward   28.12 | Waste 18.25 | Reject  1.30 | Loss   0.2360
+Iteration  10 | Success 1.000 | Steps  20.59 | Reward   30.09 | Waste 15.77 | Reject  1.53 | Loss   0.2025
+Iteration  11 | Success 1.000 | Steps  18.67 | Reward   29.39 | Waste 13.27 | Reject  1.55 | Loss   0.2415
+Iteration  12 | Success 1.000 | Steps  18.61 | Reward   30.44 | Waste 12.62 | Reject  1.47 | Loss   0.1788
+Iteration  13 | Success 1.000 | Steps  18.39 | Reward   32.17 | Waste 11.84 | Reject  1.29 | Loss   0.1668
+Iteration  14 | Success 1.000 | Steps  18.81 | Reward   33.14 | Waste 11.50 | Reject  1.19 | Loss   0.1681
+Iteration  15 | Success 1.000 | Steps  19.23 | Reward   33.15 | Waste 11.45 | Reject  1.25 | Loss   0.1434
+Iteration  16 | Success 0.992 | Steps  20.47 | Reward   34.04 | Waste 12.60 | Reject  0.94 | Loss   0.1495
+Iteration  17 | Success 1.000 | Steps  21.21 | Reward   34.47 | Waste 12.16 | Reject  0.96 | Loss   0.1600
+Iteration  18 | Success 1.000 | Steps  20.11 | Reward   33.48 | Waste 11.65 | Reject  0.70 | Loss   0.2310
+Iteration  19 | Success 0.992 | Steps  21.58 | Reward   34.00 | Waste 11.69 | Reject  0.76 | Loss   0.2038
+Iteration  20 | Success 1.000 | Steps  19.84 | Reward   35.54 | Waste  9.59 | Reject  0.77 | Loss   0.1653
+Iteration  21 | Success 1.000 | Steps  19.93 | Reward   36.72 | Waste  9.52 | Reject  0.72 | Loss   0.1363
+Iteration  22 | Success 1.000 | Steps  20.08 | Reward   36.41 | Waste  9.36 | Reject  0.68 | Loss   0.1345
+Iteration  23 | Success 1.000 | Steps  19.45 | Reward   35.63 | Waste  8.08 | Reject  0.90 | Loss   0.1800
+Iteration  24 | Success 1.000 | Steps  18.29 | Reward   37.18 | Waste  7.46 | Reject  0.58 | Loss   0.1530
+Iteration  25 | Success 1.000 | Steps  18.38 | Reward   37.70 | Waste  8.40 | Reject  0.41 | Loss   0.1726
+Iteration  26 | Success 1.000 | Steps  17.65 | Reward   39.60 | Waste  6.23 | Reject  0.77 | Loss   0.0809
+Iteration  27 | Success 1.000 | Steps  16.49 | Reward   38.56 | Waste  5.70 | Reject  0.66 | Loss   0.1130
+Iteration  28 | Success 1.000 | Steps  17.41 | Reward   37.58 | Waste  6.84 | Reject  0.66 | Loss   0.1063
+Iteration  29 | Success 1.000 | Steps  16.05 | Reward   39.05 | Waste  5.54 | Reject  0.40 | Loss   0.1006
+Iteration  30 | Success 1.000 | Steps  19.65 | Reward   38.84 | Waste  7.09 | Reject  0.53 | Loss   0.1439
+
+==============================================================================
+GRPO TRAINING COMPLETE
+==============================================================================
+Checkpoint: /home/jovyan/marl-dev-team/results/checkpoints/marl_grpo_role_aware_g8/checkpoint.pt

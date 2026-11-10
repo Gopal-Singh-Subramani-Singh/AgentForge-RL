@@ -1,0 +1,53 @@
+
+======================================================================================
+CONSTRAINED PPO-GUIDED GRPO V2
+======================================================================================
+Starting checkpoint: /home/jovyan/marl-dev-team/results/checkpoints/ppo_guided_grpo_g8/checkpoint.pt
+Iterations: 15
+Trajectories / iteration: 128
+LR: 3e-05
+Clip: 0.1
+Entropy: 0.0001
+Training penalties: waste=2.0, reject=3.0
+
+Initial held-out validation:
+Success 1.000 | Steps 9.97 | Reward 43.46 | Waste 0.19 | Reject 0.47 | Score 38.08
+Iter  1 | Train steps  9.42 reward  43.67 waste 0.06 reject 0.20 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0075
+Iter  2 | Train steps 10.06 reward  41.77 waste 0.45 reject 0.84 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0225
+Iter  3 | Train steps  9.30 reward  42.50 waste 0.22 reject 0.37 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0380
+Iter  4 | Train steps  9.72 reward  44.22 waste 0.10 reject 0.32 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0045
+Iter  5 | Train steps 10.33 reward  43.53 waste 0.13 reject 0.59 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0128
+Iter  6 | Train steps  9.85 reward  41.93 waste 0.19 reject 0.65 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0060
+Iter  7 | Train steps  9.66 reward  42.12 waste 0.09 reject 0.55 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0327
+Iter  8 | Train steps  9.62 reward  44.42 waste 0.09 reject 0.23 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0066
+Iter  9 | Train steps  9.26 reward  44.78 waste 0.00 reject 0.02 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0088
+Iter 10 | Train steps 10.97 reward  40.90 waste 0.62 reject 1.23 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0322
+Iter 11 | Train steps  9.40 reward  43.78 waste 0.03 reject 0.23 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0065
+Iter 12 | Train steps  9.78 reward  42.82 waste 0.31 reject 0.52 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0070
+Iter 13 | Train steps  9.72 reward  41.61 waste 0.14 reject 0.72 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0116
+Iter 14 | Train steps 10.11 reward  44.19 waste 0.19 reject 0.55 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0088
+Iter 15 | Train steps 10.13 reward  42.52 waste 0.19 reject 0.72 | VAL steps  9.97 reward  43.46 waste 0.19 reject 0.47 score  38.08 | loss 0.0068
+
+======================================================================================
+BEST HELD-OUT CHECKPOINT
+======================================================================================
+Iteration: 0
+Success: 1.000
+Steps: 9.97
+Reward: 43.46
+Waste: 0.19
+Reject: 0.47
+
+======================================================================================
+FINAL 500-EPISODE GREEDY EVALUATION
+======================================================================================
+Success: 1.000
+Steps:   9.94
+Reward:  43.16
+Waste:   0.20
+Reject:  0.52
+
+MARL PPO target:
+Success 1.000 | Steps 10.33 | Reward 45.77 | Waste 0.00
+
+Checkpoint: /home/jovyan/marl-dev-team/results/checkpoints/ppo_guided_grpo_v2_best/checkpoint.pt

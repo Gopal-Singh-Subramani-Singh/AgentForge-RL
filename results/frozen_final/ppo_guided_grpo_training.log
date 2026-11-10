@@ -1,0 +1,111 @@
+
+==============================================================================
+PPO-GUIDED GRPO-STYLE MARL
+==============================================================================
+Teacher checkpoint: /home/jovyan/marl-dev-team/results/checkpoints/marl_ppo_alpha_0_25
+
+==============================================================================
+STAGE 1 — COLLECT PPO TEACHER DATA
+==============================================================================
+developer      : 5786 training states
+tester         : 5786 training states
+documentation  : 5786 training states
+reviewer       : 5786 training states
+
+==============================================================================
+STAGE 2 — DISTILL MARL PPO INTO GRPO NETWORKS
+==============================================================================
+developer       epoch  1 | loss 0.4610 | accuracy 0.7814
+developer       epoch  5 | loss 0.1005 | accuracy 0.9763
+developer       epoch 10 | loss 0.0202 | accuracy 0.9952
+developer       epoch 15 | loss 0.0119 | accuracy 0.9981
+developer       epoch 20 | loss 0.0086 | accuracy 0.9984
+developer       epoch 25 | loss 0.0055 | accuracy 0.9997
+developer       epoch 30 | loss 0.0045 | accuracy 0.9997
+tester          epoch  1 | loss 0.5022 | accuracy 0.7788
+tester          epoch  5 | loss 0.0616 | accuracy 0.9895
+tester          epoch 10 | loss 0.0256 | accuracy 0.9938
+tester          epoch 15 | loss 0.0156 | accuracy 0.9952
+tester          epoch 20 | loss 0.0138 | accuracy 0.9967
+tester          epoch 25 | loss 0.0092 | accuracy 0.9974
+tester          epoch 30 | loss 0.0093 | accuracy 0.9974
+documentation   epoch  1 | loss 0.3402 | accuracy 0.8731
+documentation   epoch  5 | loss 0.0020 | accuracy 1.0000
+documentation   epoch 10 | loss 0.0005 | accuracy 1.0000
+documentation   epoch 15 | loss 0.0003 | accuracy 1.0000
+documentation   epoch 20 | loss 0.0002 | accuracy 1.0000
+documentation   epoch 25 | loss 0.0001 | accuracy 1.0000
+documentation   epoch 30 | loss 0.0001 | accuracy 1.0000
+reviewer        epoch  1 | loss 0.3290 | accuracy 0.9013
+reviewer        epoch  5 | loss 0.0643 | accuracy 0.9988
+reviewer        epoch 10 | loss 0.0141 | accuracy 0.9984
+reviewer        epoch 15 | loss 0.0089 | accuracy 0.9984
+reviewer        epoch 20 | loss 0.0067 | accuracy 0.9984
+reviewer        epoch 25 | loss 0.0056 | accuracy 0.9984
+reviewer        epoch 30 | loss 0.0049 | accuracy 0.9984
+
+==============================================================================
+STAGE 3 — PPO-GUIDED GRPO FINE-TUNING
+==============================================================================
+Iterations: 30
+Group size: 8
+Groups / iteration: 16
+Trajectories / iteration: 128
+Credit assignment: 0.25 individual + 0.75 team
+Entropy: 0.003 -> 0.0005
+Iteration   1 | Success 1.000 | Steps  10.04 | Reward   44.62 | Waste  0.00 | Reject  0.00 | Entropy 0.00300 | Loss -0.0003
+Iteration   2 | Success 1.000 | Steps  10.57 | Reward   46.71 | Waste  0.01 | Reject  0.01 | Entropy 0.00291 | Loss -0.0011
+Iteration   3 | Success 1.000 | Steps  10.04 | Reward   44.81 | Waste  0.00 | Reject  0.00 | Entropy 0.00283 | Loss -0.0020
+Iteration   4 | Success 1.000 | Steps  10.25 | Reward   45.41 | Waste  0.00 | Reject  0.00 | Entropy 0.00274 | Loss 0.0013
+Iteration   5 | Success 1.000 | Steps  10.90 | Reward   46.41 | Waste  0.00 | Reject  0.00 | Entropy 0.00266 | Loss 0.0030
+Iteration   6 | Success 1.000 | Steps  10.60 | Reward   45.15 | Waste  0.00 | Reject  0.01 | Entropy 0.00257 | Loss 0.0023
+Iteration   7 | Success 1.000 | Steps  10.45 | Reward   45.20 | Waste  0.00 | Reject  0.00 | Entropy 0.00248 | Loss 0.0018
+Iteration   8 | Success 1.000 | Steps  10.50 | Reward   45.67 | Waste  0.00 | Reject  0.00 | Entropy 0.00240 | Loss -0.0020
+Iteration   9 | Success 1.000 | Steps  10.12 | Reward   44.96 | Waste  0.00 | Reject  0.00 | Entropy 0.00231 | Loss 0.0040
+Iteration  10 | Success 1.000 | Steps  10.69 | Reward   46.18 | Waste  0.00 | Reject  0.00 | Entropy 0.00222 | Loss 0.0067
+Iteration  11 | Success 1.000 | Steps  10.23 | Reward   44.48 | Waste  0.00 | Reject  0.00 | Entropy 0.00214 | Loss 0.0074
+Iteration  12 | Success 1.000 | Steps  10.24 | Reward   45.01 | Waste  0.00 | Reject  0.00 | Entropy 0.00205 | Loss 0.0018
+Iteration  13 | Success 1.000 | Steps  10.34 | Reward   44.88 | Waste  0.00 | Reject  0.02 | Entropy 0.00197 | Loss -0.0001
+Iteration  14 | Success 1.000 | Steps  10.34 | Reward   46.10 | Waste  0.00 | Reject  0.02 | Entropy 0.00188 | Loss 0.0102
+Iteration  15 | Success 1.000 | Steps  10.32 | Reward   44.12 | Waste  0.05 | Reject  0.20 | Entropy 0.00179 | Loss 0.0098
+Iteration  16 | Success 1.000 | Steps  10.43 | Reward   45.03 | Waste  0.07 | Reject  0.11 | Entropy 0.00171 | Loss 0.0232
+Iteration  17 | Success 1.000 | Steps  10.82 | Reward   46.84 | Waste  0.07 | Reject  0.20 | Entropy 0.00162 | Loss 0.0312
+Iteration  18 | Success 1.000 | Steps  10.15 | Reward   44.62 | Waste  0.08 | Reject  0.11 | Entropy 0.00153 | Loss 0.0229
+Iteration  19 | Success 1.000 | Steps  10.20 | Reward   43.72 | Waste  0.09 | Reject  0.31 | Entropy 0.00145 | Loss 0.0283
+Iteration  20 | Success 1.000 | Steps  10.34 | Reward   45.55 | Waste  0.09 | Reject  0.28 | Entropy 0.00136 | Loss 0.0333
+Iteration  21 | Success 1.000 | Steps   9.57 | Reward   45.33 | Waste  0.05 | Reject  0.06 | Entropy 0.00128 | Loss 0.0295
+Iteration  22 | Success 1.000 | Steps   9.99 | Reward   45.00 | Waste  0.02 | Reject  0.37 | Entropy 0.00119 | Loss 0.0271
+Iteration  23 | Success 1.000 | Steps  10.02 | Reward   40.25 | Waste  0.41 | Reject  0.88 | Entropy 0.00110 | Loss 0.0246
+Iteration  24 | Success 1.000 | Steps   9.52 | Reward   43.15 | Waste  0.12 | Reject  0.30 | Entropy 0.00102 | Loss 0.0145
+Iteration  25 | Success 1.000 | Steps  10.01 | Reward   42.96 | Waste  0.20 | Reject  0.70 | Entropy 0.00093 | Loss 0.0302
+Iteration  26 | Success 1.000 | Steps   9.76 | Reward   44.04 | Waste  0.07 | Reject  0.45 | Entropy 0.00084 | Loss -0.0061
+Iteration  27 | Success 1.000 | Steps   9.73 | Reward   44.57 | Waste  0.05 | Reject  0.31 | Entropy 0.00076 | Loss 0.0230
+Iteration  28 | Success 1.000 | Steps   9.28 | Reward   42.54 | Waste  0.15 | Reject  0.33 | Entropy 0.00067 | Loss 0.0171
+Iteration  29 | Success 1.000 | Steps   9.48 | Reward   43.92 | Waste  0.06 | Reject  0.32 | Entropy 0.00059 | Loss -0.0037
+Iteration  30 | Success 1.000 | Steps  10.49 | Reward   43.13 | Waste  0.45 | Reject  0.81 | Entropy 0.00050 | Loss 0.0164
+
+==============================================================================
+STAGE 4 — FINAL 500-EPISODE EVALUATION
+==============================================================================
+
+Method                   Success     Steps      Reward     Waste    Reject
+--------------------------------------------------------------------------
+PPO-GRPO greedy            1.000      9.94       43.16      0.20      0.52
+PPO-GRPO sample            1.000      9.88       43.18      0.20      0.52
+
+Checkpoint: /home/jovyan/marl-dev-team/results/checkpoints/ppo_guided_grpo_g8/checkpoint.pt
+Results: /home/jovyan/marl-dev-team/results/ppo_guided_grpo_results.csv
+
+==============================================================================
+REFERENCE TARGETS
+==============================================================================
+MARL PPO broad evaluation:
+  Steps  = 10.33
+  Reward = 45.77
+  Waste  = 0.00
+
+Original GRPO G8 stochastic:
+  Steps  = 15.18
+  Reward = 39.84
+  Waste  = 6.50
+  Reject = 0.45

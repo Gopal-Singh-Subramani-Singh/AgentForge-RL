@@ -1,0 +1,13 @@
+Loading checkpoint: /home/jovyan/marl-dev-team/results/checkpoints/marl_grpo_role_aware_g8/checkpoint.pt
+
+========================================================================
+GRPO-STYLE MARL EVALUATION
+========================================================================
+Episodes: 500
+Resources: 2
+Alpha: 0.25
+Success rate: 0.000
+Average steps: 50.00
+Average team reward: 6.07
+Average wasted allocations: 0.00
+Average review rejections: 0.00
