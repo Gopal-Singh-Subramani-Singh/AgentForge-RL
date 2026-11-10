@@ -1,0 +1,119 @@
+
+==========================================================================================
+Random
+==========================================================================================
+Step  0 | requested: tester, documentation, reviewer     | allocated: documentation, reviewer
+Step  1 | requested: documentation, reviewer             | allocated: documentation, reviewer
+Step  2 | requested: developer, reviewer                 | allocated: developer, reviewer
+Step  3 | requested: developer, documentation, reviewer  | allocated: reviewer, developer
+Step  4 | requested: developer, reviewer                 | allocated: developer, reviewer
+Step  5 | requested: developer, tester                   | allocated: developer, tester
+Step  6 | requested: tester, documentation, reviewer     | allocated: tester, reviewer
+Step  7 | requested: -                                   | allocated: -
+Step  8 | requested: tester, documentation, reviewer     | allocated: documentation, reviewer
+Step  9 | requested: developer, tester                   | allocated: developer, tester
+Step 10 | requested: tester, reviewer                    | allocated: tester, reviewer
+Step 11 | requested: developer, tester, documentation, reviewer | allocated: developer, reviewer
+Step 12 | requested: tester, documentation               | allocated: tester, documentation
+Step 13 | requested: developer, tester, documentation    | allocated: tester, developer
+Step 14 | requested: developer, tester, reviewer         | allocated: developer, tester
+Step 15 | requested: developer, tester, reviewer         | allocated: tester, developer
+Step 16 | requested: -                                   | allocated: -
+Step 17 | requested: developer, tester                   | allocated: developer, tester
+Step 18 | requested: documentation                       | allocated: documentation
+Step 19 | requested: developer, tester, documentation    | allocated: documentation, developer
+Step 20 | requested: developer, documentation            | allocated: developer, documentation
+Step 21 | requested: tester, documentation, reviewer     | allocated: documentation, tester
+Step 22 | requested: developer, tester, documentation    | allocated: documentation, developer
+Step 23 | requested: developer, reviewer                 | allocated: developer, reviewer
+
+==========================================================================================
+Rule-based
+==========================================================================================
+Step  0 | requested: developer                           | allocated: developer
+Step  1 | requested: developer, tester, documentation    | allocated: tester, documentation
+Step  2 | requested: developer, documentation            | allocated: developer, documentation
+Step  3 | requested: developer, tester, documentation    | allocated: documentation, developer
+Step  4 | requested: developer, tester, documentation    | allocated: developer, documentation
+Step  5 | requested: developer, tester                   | allocated: developer, tester
+Step  6 | requested: developer, tester                   | allocated: developer, tester
+Step  7 | requested: tester                              | allocated: tester
+Step  8 | requested: tester                              | allocated: tester
+Step  9 | requested: tester                              | allocated: tester
+Step 10 | requested: reviewer                            | allocated: reviewer
+
+Loading centralized PPO...
+
+==========================================================================================
+Centralized PPO
+==========================================================================================
+Step  0 | requested: developer                           | allocated: developer
+Step  1 | requested: developer, documentation            | allocated: developer, documentation
+Step  2 | requested: developer, tester, documentation    | allocated: tester, documentation
+Step  3 | requested: developer, tester                   | allocated: developer, tester
+Step  4 | requested: developer, tester                   | allocated: developer, tester
+Step  5 | requested: developer, tester                   | allocated: developer, tester
+Step  6 | requested: developer, tester, documentation    | allocated: developer, tester
+Step  7 | requested: developer, tester, documentation    | allocated: tester, documentation
+Step  8 | requested: developer, documentation            | allocated: developer, documentation
+Step  9 | requested: tester                              | allocated: tester
+Step 10 | requested: developer, tester                   | allocated: developer, tester
+Step 11 | requested: tester, reviewer                    | allocated: tester, reviewer
+
+Loading MARL PPO...
+
+==========================================================================================
+MARL PPO
+==========================================================================================
+Step  0 | requested: developer, documentation            | allocated: developer, documentation
+Step  1 | requested: developer, documentation            | allocated: developer, documentation
+Step  2 | requested: developer, tester, documentation    | allocated: tester, documentation
+Step  3 | requested: developer, documentation            | allocated: developer, documentation
+Step  4 | requested: developer, tester                   | allocated: developer, tester
+Step  5 | requested: developer, tester                   | allocated: developer, tester
+Step  6 | requested: developer, tester                   | allocated: developer, tester
+Step  7 | requested: developer, tester                   | allocated: developer, tester
+Step  8 | requested: tester                              | allocated: tester
+Step  9 | requested: tester                              | allocated: tester
+Step 10 | requested: reviewer                            | allocated: reviewer
+
+Loading GRPO-style MARL...
+
+==========================================================================================
+GRPO-style MARL
+==========================================================================================
+Step  0 | requested: developer, documentation            | allocated: developer, documentation
+Step  1 | requested: developer, tester, documentation    | allocated: tester, documentation
+Step  2 | requested: developer                           | allocated: developer
+Step  3 | requested: developer, documentation            | allocated: developer, documentation
+Step  4 | requested: developer, documentation            | allocated: developer, documentation
+Step  5 | requested: developer, tester                   | allocated: developer, tester
+Step  6 | requested: developer, tester                   | allocated: developer, tester
+Step  7 | requested: documentation                       | allocated: documentation
+Step  8 | requested: developer, tester                   | allocated: developer, tester
+Step  9 | requested: -                                   | allocated: -
+Step 10 | requested: tester                              | allocated: tester
+Step 11 | requested: developer, tester, documentation, reviewer | allocated: developer, reviewer
+Step 12 | requested: developer, tester                   | allocated: developer, tester
+Step 13 | requested: -                                   | allocated: -
+Step 14 | requested: developer, tester, reviewer         | allocated: reviewer, tester
+Step 15 | requested: -                                   | allocated: -
+Step 16 | requested: tester                              | allocated: tester
+Step 17 | requested: tester                              | allocated: tester
+Step 18 | requested: tester                              | allocated: tester
+Step 19 | requested: developer, tester                   | allocated: developer, tester
+Step 20 | requested: tester, reviewer                    | allocated: tester, reviewer
+
+==============================================================================================================
+ALGORITHM SUMMARY — SAME SEED
+==============================================================================================================
+Algorithm             Success   Steps    Reward   Waste  Reject    Dev   Test   Docs  Review
+--------------------------------------------------------------------------------------------------------------
+Random                   True      24    -10.30      17       9     14     10      9      10
+Rule-based               True      11     44.90       0       0      6      6      4       1
+Centralized PPO          True      12     52.30       1       0      8      9      4       1
+MARL PPO                 True      11     48.90       0       0      7      7      4       1
+GRPO-style MARL          True      21     37.80       7       2     10     12      5       3
+
+Saved: results/allocation_traces.csv
+Saved: results/allocation_summary.csv

@@ -1,0 +1,6 @@
+algorithm,success,steps,reward,waste,rejections,developer_alloc,tester_alloc,documentation_alloc,reviewer_alloc
+Random,True,24,-10.300000000000022,17,9,14,10,9,10
+Rule-based,True,11,44.89999999999999,0,0,6,6,4,1
+Centralized PPO,True,12,52.29999999999999,1,0,8,9,4,1
+MARL PPO,True,11,48.89999999999999,0,0,7,7,4,1
+GRPO-style MARL,True,21,37.8,7,2,10,12,5,3

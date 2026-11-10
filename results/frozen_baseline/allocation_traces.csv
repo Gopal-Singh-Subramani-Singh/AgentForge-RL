@@ -1,0 +1,80 @@
+algorithm,step,state,requested,allocated,waste_step
+Random,0,"{'dev': 5, 'untested': 0, 'bugs': 0, 'docs': 0.0, 'docs_done': False}","tester, documentation, reviewer","documentation, reviewer",1
+Random,1,"{'dev': 5, 'untested': 0, 'bugs': 0, 'docs': 0.0, 'docs_done': False}","documentation, reviewer","documentation, reviewer",1
+Random,2,"{'dev': 5, 'untested': 0, 'bugs': 0, 'docs': 0.0, 'docs_done': False}","developer, reviewer","developer, reviewer",0
+Random,3,"{'dev': 4, 'untested': 1, 'bugs': 0, 'docs': 0.0, 'docs_done': False}","developer, documentation, reviewer","reviewer, developer",0
+Random,4,"{'dev': 3, 'untested': 2, 'bugs': 0, 'docs': 0.0, 'docs_done': False}","developer, reviewer","developer, reviewer",0
+Random,5,"{'dev': 2, 'untested': 3, 'bugs': 0, 'docs': 0.0, 'docs_done': False}","developer, tester","developer, tester",0
+Random,6,"{'dev': 1, 'untested': 3, 'bugs': 1, 'docs': 0.0, 'docs_done': False}","tester, documentation, reviewer","tester, reviewer",0
+Random,7,"{'dev': 1, 'untested': 2, 'bugs': 1, 'docs': 0.0, 'docs_done': False}",,,0
+Random,8,"{'dev': 1, 'untested': 2, 'bugs': 1, 'docs': 0.0, 'docs_done': False}","tester, documentation, reviewer","documentation, reviewer",0
+Random,9,"{'dev': 1, 'untested': 2, 'bugs': 1, 'docs': 0.25, 'docs_done': False}","developer, tester","developer, tester",0
+Random,10,"{'dev': 1, 'untested': 2, 'bugs': 0, 'docs': 0.25, 'docs_done': False}","tester, reviewer","tester, reviewer",0
+Random,11,"{'dev': 1, 'untested': 1, 'bugs': 0, 'docs': 0.25, 'docs_done': False}","developer, tester, documentation, reviewer","developer, reviewer",0
+Random,12,"{'dev': 0, 'untested': 2, 'bugs': 0, 'docs': 0.25, 'docs_done': False}","tester, documentation","tester, documentation",0
+Random,13,"{'dev': 0, 'untested': 1, 'bugs': 0, 'docs': 0.5, 'docs_done': False}","developer, tester, documentation","tester, developer",1
+Random,14,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 0.5, 'docs_done': False}","developer, tester, reviewer","developer, tester",2
+Random,15,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 0.5, 'docs_done': False}","developer, tester, reviewer","tester, developer",2
+Random,16,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 0.5, 'docs_done': False}",,,0
+Random,17,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 0.5, 'docs_done': False}","developer, tester","developer, tester",2
+Random,18,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 0.5, 'docs_done': False}",documentation,documentation,0
+Random,19,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 0.75, 'docs_done': False}","developer, tester, documentation","documentation, developer",1
+Random,20,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","developer, documentation","developer, documentation",2
+Random,21,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","tester, documentation, reviewer","documentation, tester",2
+Random,22,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","developer, tester, documentation","documentation, developer",2
+Random,23,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","developer, reviewer","developer, reviewer",1
+Rule-based,0,"{'dev': 5, 'untested': 0, 'bugs': 0, 'docs': 0.0, 'docs_done': False}",developer,developer,0
+Rule-based,1,"{'dev': 4, 'untested': 1, 'bugs': 0, 'docs': 0.0, 'docs_done': False}","developer, tester, documentation","tester, documentation",0
+Rule-based,2,"{'dev': 4, 'untested': 0, 'bugs': 1, 'docs': 0.25, 'docs_done': False}","developer, documentation","developer, documentation",0
+Rule-based,3,"{'dev': 4, 'untested': 1, 'bugs': 0, 'docs': 0.5, 'docs_done': False}","developer, tester, documentation","documentation, developer",0
+Rule-based,4,"{'dev': 3, 'untested': 2, 'bugs': 0, 'docs': 0.75, 'docs_done': False}","developer, tester, documentation","developer, documentation",0
+Rule-based,5,"{'dev': 2, 'untested': 3, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","developer, tester","developer, tester",0
+Rule-based,6,"{'dev': 1, 'untested': 3, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","developer, tester","developer, tester",0
+Rule-based,7,"{'dev': 0, 'untested': 3, 'bugs': 0, 'docs': 1.0, 'docs_done': True}",tester,tester,0
+Rule-based,8,"{'dev': 0, 'untested': 2, 'bugs': 0, 'docs': 1.0, 'docs_done': True}",tester,tester,0
+Rule-based,9,"{'dev': 0, 'untested': 1, 'bugs': 0, 'docs': 1.0, 'docs_done': True}",tester,tester,0
+Rule-based,10,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 1.0, 'docs_done': True}",reviewer,reviewer,0
+Centralized PPO,0,"{'dev': 5, 'untested': 0, 'bugs': 0, 'docs': 0.0, 'docs_done': False}",developer,developer,0
+Centralized PPO,1,"{'dev': 4, 'untested': 1, 'bugs': 0, 'docs': 0.0, 'docs_done': False}","developer, documentation","developer, documentation",0
+Centralized PPO,2,"{'dev': 3, 'untested': 2, 'bugs': 0, 'docs': 0.25, 'docs_done': False}","developer, tester, documentation","tester, documentation",0
+Centralized PPO,3,"{'dev': 3, 'untested': 1, 'bugs': 1, 'docs': 0.5, 'docs_done': False}","developer, tester","developer, tester",0
+Centralized PPO,4,"{'dev': 3, 'untested': 1, 'bugs': 1, 'docs': 0.5, 'docs_done': False}","developer, tester","developer, tester",0
+Centralized PPO,5,"{'dev': 3, 'untested': 1, 'bugs': 0, 'docs': 0.5, 'docs_done': False}","developer, tester","developer, tester",0
+Centralized PPO,6,"{'dev': 2, 'untested': 1, 'bugs': 0, 'docs': 0.5, 'docs_done': False}","developer, tester, documentation","developer, tester",0
+Centralized PPO,7,"{'dev': 1, 'untested': 1, 'bugs': 0, 'docs': 0.5, 'docs_done': False}","developer, tester, documentation","tester, documentation",0
+Centralized PPO,8,"{'dev': 1, 'untested': 0, 'bugs': 0, 'docs': 0.75, 'docs_done': False}","developer, documentation","developer, documentation",0
+Centralized PPO,9,"{'dev': 0, 'untested': 1, 'bugs': 0, 'docs': 1.0, 'docs_done': True}",tester,tester,0
+Centralized PPO,10,"{'dev': 0, 'untested': 0, 'bugs': 1, 'docs': 1.0, 'docs_done': True}","developer, tester","developer, tester",0
+Centralized PPO,11,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","tester, reviewer","tester, reviewer",1
+MARL PPO,0,"{'dev': 5, 'untested': 0, 'bugs': 0, 'docs': 0.0, 'docs_done': False}","developer, documentation","developer, documentation",0
+MARL PPO,1,"{'dev': 4, 'untested': 1, 'bugs': 0, 'docs': 0.25, 'docs_done': False}","developer, documentation","developer, documentation",0
+MARL PPO,2,"{'dev': 3, 'untested': 2, 'bugs': 0, 'docs': 0.5, 'docs_done': False}","developer, tester, documentation","tester, documentation",0
+MARL PPO,3,"{'dev': 3, 'untested': 1, 'bugs': 1, 'docs': 0.75, 'docs_done': False}","developer, documentation","developer, documentation",0
+MARL PPO,4,"{'dev': 3, 'untested': 2, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","developer, tester","developer, tester",0
+MARL PPO,5,"{'dev': 2, 'untested': 2, 'bugs': 1, 'docs': 1.0, 'docs_done': True}","developer, tester","developer, tester",0
+MARL PPO,6,"{'dev': 2, 'untested': 2, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","developer, tester","developer, tester",0
+MARL PPO,7,"{'dev': 1, 'untested': 2, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","developer, tester","developer, tester",0
+MARL PPO,8,"{'dev': 0, 'untested': 2, 'bugs': 0, 'docs': 1.0, 'docs_done': True}",tester,tester,0
+MARL PPO,9,"{'dev': 0, 'untested': 1, 'bugs': 0, 'docs': 1.0, 'docs_done': True}",tester,tester,0
+MARL PPO,10,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 1.0, 'docs_done': True}",reviewer,reviewer,0
+GRPO-style MARL,0,"{'dev': 5, 'untested': 0, 'bugs': 0, 'docs': 0.0, 'docs_done': False}","developer, documentation","developer, documentation",0
+GRPO-style MARL,1,"{'dev': 4, 'untested': 1, 'bugs': 0, 'docs': 0.25, 'docs_done': False}","developer, tester, documentation","tester, documentation",0
+GRPO-style MARL,2,"{'dev': 4, 'untested': 0, 'bugs': 1, 'docs': 0.5, 'docs_done': False}",developer,developer,0
+GRPO-style MARL,3,"{'dev': 4, 'untested': 1, 'bugs': 0, 'docs': 0.5, 'docs_done': False}","developer, documentation","developer, documentation",0
+GRPO-style MARL,4,"{'dev': 3, 'untested': 2, 'bugs': 0, 'docs': 0.75, 'docs_done': False}","developer, documentation","developer, documentation",0
+GRPO-style MARL,5,"{'dev': 2, 'untested': 3, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","developer, tester","developer, tester",0
+GRPO-style MARL,6,"{'dev': 1, 'untested': 3, 'bugs': 1, 'docs': 1.0, 'docs_done': True}","developer, tester","developer, tester",0
+GRPO-style MARL,7,"{'dev': 1, 'untested': 3, 'bugs': 0, 'docs': 1.0, 'docs_done': True}",documentation,documentation,1
+GRPO-style MARL,8,"{'dev': 1, 'untested': 3, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","developer, tester","developer, tester",0
+GRPO-style MARL,9,"{'dev': 0, 'untested': 3, 'bugs': 0, 'docs': 1.0, 'docs_done': True}",,,0
+GRPO-style MARL,10,"{'dev': 0, 'untested': 3, 'bugs': 0, 'docs': 1.0, 'docs_done': True}",tester,tester,0
+GRPO-style MARL,11,"{'dev': 0, 'untested': 2, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","developer, tester, documentation, reviewer","developer, reviewer",1
+GRPO-style MARL,12,"{'dev': 0, 'untested': 2, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","developer, tester","developer, tester",1
+GRPO-style MARL,13,"{'dev': 0, 'untested': 1, 'bugs': 0, 'docs': 1.0, 'docs_done': True}",,,0
+GRPO-style MARL,14,"{'dev': 0, 'untested': 1, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","developer, tester, reviewer","reviewer, tester",0
+GRPO-style MARL,15,"{'dev': 0, 'untested': 0, 'bugs': 1, 'docs': 1.0, 'docs_done': True}",,,0
+GRPO-style MARL,16,"{'dev': 0, 'untested': 0, 'bugs': 1, 'docs': 1.0, 'docs_done': True}",tester,tester,1
+GRPO-style MARL,17,"{'dev': 0, 'untested': 0, 'bugs': 1, 'docs': 1.0, 'docs_done': True}",tester,tester,1
+GRPO-style MARL,18,"{'dev': 0, 'untested': 0, 'bugs': 1, 'docs': 1.0, 'docs_done': True}",tester,tester,1
+GRPO-style MARL,19,"{'dev': 0, 'untested': 0, 'bugs': 1, 'docs': 1.0, 'docs_done': True}","developer, tester","developer, tester",0
+GRPO-style MARL,20,"{'dev': 0, 'untested': 0, 'bugs': 0, 'docs': 1.0, 'docs_done': True}","tester, reviewer","tester, reviewer",1
